@@ -1,0 +1,249 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// Norwegian (Bokmal) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_NOR)
+#ifdef _WIN32
+LANGUAGE LANG_NORWEGIAN, SUBLANG_NORWEGIAN_BOKMAL
+#pragma code_page(1252)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_NOR)\r\n"
+    "LANGUAGE 20, 1\r\n"
+    "#pragma code_page(1252)\r\n"
+    "#include ""res\\PressureMagi.rc2""  // non-Microsoft Visual C++ edited resources\r\n"
+    "#include ""afxres.rc""     // Standard components\r\n"
+    "#endif\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON                    "res\\PressureMagi.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_ABOUTBOX DIALOGEX 0, 0, 235, 55
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "About PressureMagi"
+FONT 8, "MS Shell Dlg", 0, 0, 0x1
+BEGIN
+    ICON            IDR_MAINFRAME,IDC_STATIC,11,17,20,20
+    LTEXT           "PressureMagi Version 1.0",IDC_STATIC,40,10,119,8,SS_NOPREFIX
+    LTEXT           "Copyright (C) 2007",IDC_STATIC,40,25,119,8
+    DEFPUSHBUTTON   "OK",IDOK,178,7,50,16,WS_GROUP
+END
+
+IDD_PRESSUREMAGI_DIALOG DIALOGEX 0, 0, 240, 334
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_APPWINDOW
+CAPTION "PressureMagi"
+FONT 8, "MS Shell Dlg", 0, 0, 0x1
+BEGIN
+    LTEXT           "Input:",IDC_STATIC,14,20,21,8
+    COMBOBOX        IDC_MIDIINPUT_COMBO,42,18,106,80,CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Output:",IDC_STATIC,14,39,26,8
+    COMBOBOX        IDC_MIDIOUTPUT_COMBO,42,37,106,72,CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    GROUPBOX        "MIDI",IDC_STATIC,7,7,226,51
+    GROUPBOX        "Input",IDC_STATIC,7,59,226,72
+    LTEXT           "4 mA:",IDC_STATIC,122,92,20,8
+    DEFPUSHBUTTON   "Save and close",IDOK,152,280,65,16
+    GROUPBOX        "Monitor",IDC_STATIC,7,200,226,72
+    LTEXT           "Input velocity:",IDC_STATIC,20,214,48,8
+    EDITTEXT        IDC_INPUT_VELOCITY,71,211,21,14,ES_AUTOHSCROLL | ES_READONLY
+    LTEXT           "Read velocity:",IDC_STATIC,21,232,47,8
+    EDITTEXT        IDC_READ_VELOCITY,71,230,21,14,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_MEASURED_CURRENT,174,229,26,14,ES_AUTOHSCROLL | ES_READONLY
+    LTEXT           "<= Measured current:",IDC_STATIC,95,232,73,8
+    LTEXT           "Update interval:",IDC_STATIC,15,181,53,8
+    EDITTEXT        IDC_EDIT_UPDATE_INTERVAL,71,178,26,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_COMPENSATION_FACTOR,202,178,26,14,ES_AUTOHSCROLL
+    LTEXT           "Velocity compensation factor:",IDC_STATIC,105,181,96,8
+    LTEXT           "Output velocity:",IDC_STATIC,15,252,53,8
+    EDITTEXT        IDC_OUTPUT_VELOCITY,71,250,21,14,ES_AUTOHSCROLL | ES_READONLY
+    LTEXT           "Valve closed:",IDC_STATIC,125,252,43,8
+    CONTROL         "",IDC_OUTPUT_VALVE,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,174,252,16,10
+    GROUPBOX        "Realtime processing",IDC_STATIC,7,272,130,55
+    PUSHBUTTON      "Start",IDC_BUTTON_START,16,293,50,14
+    PUSHBUTTON      "Stop",IDC_BUTTON_STOP,77,293,50,14
+    LTEXT           "14 mA:",IDC_STATIC,181,92,24,8
+    PUSHBUTTON      "Close",IDCANCEL,152,304,65,16
+    LTEXT           "Pump noteon:",IDC_STATIC,158,20,46,8
+    EDITTEXT        IDC_EDIT_NOTEON_PUMP,207,17,21,14,ES_AUTOHSCROLL
+    LTEXT           "Valve noteon:",IDC_STATIC,158,39,46,8
+    EDITTEXT        IDC_EDIT_NOTEON_VALVE,207,36,21,14,ES_AUTOHSCROLL
+    GROUPBOX        "Process",IDC_STATIC,7,131,226,68
+    LTEXT           "Port (COM):",IDC_STATIC,30,72,40,8
+    LTEXT           "Address:",IDC_STATIC,112,72,30,8
+    LTEXT           "Channel:",IDC_STATIC,175,72,30,8
+    LTEXT           "Mapping to MIDI velocity",IDC_STATIC,30,92,80,8
+    EDITTEXT        IDC_EDIT_INPUT_MIN,142,89,21,14,ES_AUTOHSCROLL | ES_NUMBER
+    EDITTEXT        IDC_EDIT_INPUT_MAX,207,89,21,14,ES_AUTOHSCROLL | ES_NUMBER
+    EDITTEXT        IDC_EDIT_INPUT_PORT,71,68,21,14,ES_AUTOHSCROLL | ES_NUMBER
+    EDITTEXT        IDC_EDIT_INPUT_ADDRESS,142,68,21,14,ES_AUTOHSCROLL | ES_NUMBER
+    EDITTEXT        IDC_EDIT_INPUT_CHANNEL,207,68,21,14,ES_AUTOHSCROLL | ES_NUMBER
+    LTEXT           "Min velocity:",IDC_STATIC,29,145,41,8
+    LTEXT           "Max velocity:",IDC_STATIC,98,145,44,8
+    LTEXT           "Tolerance:",IDC_STATIC,170,145,35,8
+    EDITTEXT        IDC_EDIT_PROCESS_MIN,71,142,21,14,ES_AUTOHSCROLL | ES_NUMBER
+    EDITTEXT        IDC_EDIT_PROCESS_MAX,142,142,21,14,ES_AUTOHSCROLL | ES_NUMBER
+    EDITTEXT        IDC_EDIT_PROCESS_TOLERANCE,207,142,21,14,ES_AUTOHSCROLL | ES_NUMBER
+    LTEXT           "Standby velocity:",IDC_STATIC,13,163,57,8
+    EDITTEXT        IDC_EDIT_PROCESS_STANDBY,71,160,21,14,ES_AUTOHSCROLL | ES_NUMBER
+    LTEXT           "Port (LPT):",IDC_STATIC,30,114,36,8
+    LTEXT           "SMS level:",IDC_STATIC,108,114,34,8
+    EDITTEXT        IDC_EDIT_OUTPUT_PORT,72,110,30,14,ES_AUTOHSCROLL | ES_NUMBER
+    EDITTEXT        IDC_EDIT_SMS_LEVEL,142,110,21,14,ES_AUTOHSCROLL | ES_NUMBER
+    LTEXT           "mA",IDC_STATIC,166,114,11,8
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,0,0,1
+ PRODUCTVERSION 1,0,0,1
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904e4"
+        BEGIN
+            VALUE "CompanyName", "TODO: <Company name>"
+            VALUE "FileDescription", "TODO: <File description>"
+            VALUE "FileVersion", "1.0.0.1"
+            VALUE "InternalName", "PressureMagi.exe"
+            VALUE "LegalCopyright", "TODO: (c) <Company name>.  All rights reserved."
+            VALUE "OriginalFilename", "PressureMagi.exe"
+            VALUE "ProductName", "TODO: <Product name>"
+            VALUE "ProductVersion", "1.0.0.1"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1252
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO 
+BEGIN
+    IDD_ABOUTBOX, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 228
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 48
+    END
+
+    IDD_PRESSUREMAGI_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 233
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 327
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE 
+BEGIN
+    IDS_ABOUTBOX            "&About PressureMagi..."
+END
+
+#endif    // Norwegian (Bokmal) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_NOR)
+LANGUAGE 20, 1
+#pragma code_page(1252)
+#include "res\PressureMagi.rc2"  // non-Microsoft Visual C++ edited resources
+#include "afxres.rc"     // Standard components
+#endif
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

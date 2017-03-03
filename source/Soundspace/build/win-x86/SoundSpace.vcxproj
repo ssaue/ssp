@@ -1,0 +1,341 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Template|Win32">
+      <Configuration>Template</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\src\assert.c">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\src\AutostartDialog.cpp" />
+    <ClCompile Include="..\..\src\ClockDate.cpp" />
+    <ClCompile Include="..\..\src\conditionaldialog.cpp" />
+    <ClCompile Include="..\..\src\debug.c">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\src\DeviceDialog.cpp" />
+    <ClCompile Include="..\..\src\DMXselectFile.cpp" />
+    <ClCompile Include="..\..\src\InputDialog.cpp" />
+    <ClCompile Include="..\..\src\LayoutDialog.cpp" />
+    <ClCompile Include="..\..\src\MainFrm.cpp" />
+    <ClCompile Include="..\..\src\PlayObjectDialog.cpp" />
+    <ClCompile Include="..\..\src\PlayTaskDialog.cpp" />
+    <ClCompile Include="..\..\src\SettingsResetDlg.cpp" />
+    <ClCompile Include="..\..\src\SoundSpace.cpp" />
+    <ClCompile Include="..\..\src\SoundSpaceDoc.cpp" />
+    <ClCompile Include="..\..\src\SoundSpaceView.cpp" />
+    <ClCompile Include="..\..\src\SSpConditionals.cpp" />
+    <ClCompile Include="..\..\src\sspDateTimeManager.cpp" />
+    <ClCompile Include="..\..\src\sspDevice.cpp" />
+    <ClCompile Include="..\..\src\sspDeviceGroups.cpp" />
+    <ClCompile Include="..\..\src\sspDeviceManager.cpp" />
+    <ClCompile Include="..\..\src\sspDirectSoundDevice.cpp" />
+    <ClCompile Include="..\..\src\sspDirectSoundService.cpp" />
+    <ClCompile Include="..\..\src\sspDmxDevice.cpp" />
+    <ClCompile Include="..\..\src\sspDSchannelControl.cpp" />
+    <ClCompile Include="..\..\src\sspDScontrolFile.cpp" />
+    <ClCompile Include="..\..\src\sspExecutiveManager.cpp" />
+    <ClCompile Include="..\..\src\sspGUIClockMsgList.cpp" />
+    <ClCompile Include="..\..\src\SSpGUIConditional.cpp" />
+    <ClCompile Include="..\..\src\SSpGUIConditionalEditor.cpp" />
+    <ClCompile Include="..\..\src\sspGUIinput.cpp" />
+    <ClCompile Include="..\..\src\sspGUIinputEditor.cpp" />
+    <ClCompile Include="..\..\src\SSpGUIMessage.cpp" />
+    <ClCompile Include="..\..\src\SSpGUIMessageEditor.cpp" />
+    <ClCompile Include="..\..\src\SSpGUIMsgList.cpp" />
+    <ClCompile Include="..\..\src\SSpGUIPlayObject.cpp" />
+    <ClCompile Include="..\..\src\SSpGUIPlayObjectEditor.cpp" />
+    <ClCompile Include="..\..\src\sspGUIPreferences.cpp" />
+    <ClCompile Include="..\..\src\sspGUIString.cpp" />
+    <ClCompile Include="..\..\src\sspGUIStringDialog.cpp" />
+    <ClCompile Include="..\..\src\sspGUIStringEditors.cpp" />
+    <ClCompile Include="..\..\src\sspGUITaskEditor.cpp" />
+    <ClCompile Include="..\..\src\sspGUITriggerMsgList.cpp" />
+    <ClCompile Include="..\..\src\SSpGUIUtilityEditor.cpp" />
+    <ClCompile Include="..\..\src\SSpGUIValue.cpp" />
+    <ClCompile Include="..\..\src\SSpGUIValueEditor.cpp" />
+    <ClCompile Include="..\..\src\sspICPinput.cpp" />
+    <ClCompile Include="..\..\src\sspInput.cpp" />
+    <ClCompile Include="..\..\src\sspInputManager.cpp" />
+    <ClCompile Include="..\..\src\SSpMessage.cpp" />
+    <ClCompile Include="..\..\src\sspMIDIinput.cpp" />
+    <ClCompile Include="..\..\src\sspMidiScheduler.cpp" />
+    <ClCompile Include="..\..\src\sspMsgList.cpp" />
+    <ClCompile Include="..\..\src\SSpObject.cpp" />
+    <ClCompile Include="..\..\src\sspParallelInput.cpp" />
+    <ClCompile Include="..\..\src\sspPlayManager.cpp" />
+    <ClCompile Include="..\..\src\SSpPlayObjects.cpp" />
+    <ClCompile Include="..\..\src\sspPools.cpp" />
+    <ClCompile Include="..\..\src\sspResetManager.cpp" />
+    <ClCompile Include="..\..\src\sspScheduleObjects.cpp" />
+    <ClCompile Include="..\..\src\sspScheduler.cpp" />
+    <ClCompile Include="..\..\src\sspSetting.cpp" />
+    <ClCompile Include="..\..\src\SSpStream.cpp" />
+    <ClCompile Include="..\..\src\SSpStreamMixer.cpp" />
+    <ClCompile Include="..\..\src\sspStringObjects.cpp" />
+    <ClCompile Include="..\..\src\SSpTasks.cpp" />
+    <ClCompile Include="..\..\src\SSpUtility.cpp" />
+    <ClCompile Include="..\..\src\SSpValues.cpp" />
+    <ClCompile Include="..\..\src\sspWatchdog.cpp" />
+    <ClCompile Include="..\..\src\sspWatchdogDecision.cpp" />
+    <ClCompile Include="..\..\src\sspWatchdogRunDlg.cpp" />
+    <ClCompile Include="..\..\src\sspWavControlObject.cpp" />
+    <ClCompile Include="..\..\src\sspWavDevice.cpp" />
+    <ClCompile Include="..\..\src\StartStopDialog.cpp" />
+    <ClCompile Include="..\..\src\StdAfx.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\src\StreamDialog.cpp" />
+    <ClCompile Include="..\..\src\ValueDialog.cpp" />
+    <ClCompile Include="..\..\src\watchdog_ocx.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\src\assert.h" />
+    <ClInclude Include="..\..\src\AutostartDialog.h" />
+    <ClInclude Include="..\..\src\ClockDate.h" />
+    <ClInclude Include="..\..\src\ConditionalDialog.h" />
+    <ClInclude Include="..\..\src\debug.h" />
+    <ClInclude Include="..\..\src\DeviceDialog.h" />
+    <ClInclude Include="..\..\src\DMXselectFile.h" />
+    <ClInclude Include="..\..\src\InputDialog.h" />
+    <ClInclude Include="..\..\src\LayoutDialog.h" />
+    <ClInclude Include="..\..\src\MainFrm.h" />
+    <ClInclude Include="..\..\src\PlayObjectDialog.h" />
+    <ClInclude Include="..\..\src\PlayTaskDialog.h" />
+    <ClInclude Include="..\..\src\resource.h" />
+    <ClInclude Include="..\..\src\SettingsResetDlg.h" />
+    <ClInclude Include="..\..\src\SoundSpace.h" />
+    <ClInclude Include="..\..\src\SoundSpaceDoc.h" />
+    <ClInclude Include="..\..\src\SoundSpaceView.h" />
+    <ClInclude Include="..\..\src\SSpBasic.h" />
+    <ClInclude Include="..\..\src\SSpConditionals.h" />
+    <ClInclude Include="..\..\src\sspDateTimeManager.h" />
+    <ClInclude Include="..\..\src\sspDefines.h" />
+    <ClInclude Include="..\..\src\sspDevice.h" />
+    <ClInclude Include="..\..\src\sspDeviceGroups.h" />
+    <ClInclude Include="..\..\src\sspDeviceManager.h" />
+    <ClInclude Include="..\..\src\sspDirectSoundDevice.h" />
+    <ClInclude Include="..\..\src\sspDirectSoundService.h" />
+    <ClInclude Include="..\..\src\sspDmxDevice.h" />
+    <ClInclude Include="..\..\src\sspDSchannelControl.h" />
+    <ClInclude Include="..\..\src\sspDScontrolFile.h" />
+    <ClInclude Include="..\..\src\sspExecutiveManager.h" />
+    <ClInclude Include="..\..\src\sspGUIClockMsgList.h" />
+    <ClInclude Include="..\..\src\SSpGUIConditional.h" />
+    <ClInclude Include="..\..\src\SSpGUIConditionalEditor.h" />
+    <ClInclude Include="..\..\src\sspGUIinput.h" />
+    <ClInclude Include="..\..\src\sspGUIinputEditor.h" />
+    <ClInclude Include="..\..\src\SSpGUIMessage.h" />
+    <ClInclude Include="..\..\src\SSpGUIMessageEditor.h" />
+    <ClInclude Include="..\..\src\SSpGUIMsgList.h" />
+    <ClInclude Include="..\..\src\SSpGUIPlayObject.h" />
+    <ClInclude Include="..\..\src\SSpGUIPlayObjectEditor.h" />
+    <ClInclude Include="..\..\src\sspGUIPreferences.h" />
+    <ClInclude Include="..\..\src\sspGUIString.h" />
+    <ClInclude Include="..\..\src\sspGUIStringDialog.h" />
+    <ClInclude Include="..\..\src\sspGUIStringEditors.h" />
+    <ClInclude Include="..\..\src\sspGUITaskEditor.h" />
+    <ClInclude Include="..\..\src\sspGUITriggerMsgList.h" />
+    <ClInclude Include="..\..\src\SSpGUIUtilityEditor.h" />
+    <ClInclude Include="..\..\src\SSpGUIValue.h" />
+    <ClInclude Include="..\..\src\SSpGUIValueEditor.h" />
+    <ClInclude Include="..\..\src\sspICPinput.h" />
+    <ClInclude Include="..\..\src\sspInput.h" />
+    <ClInclude Include="..\..\src\sspInputManager.h" />
+    <ClInclude Include="..\..\src\SSpMessage.h" />
+    <ClInclude Include="..\..\src\sspMIDIinput.h" />
+    <ClInclude Include="..\..\src\sspMidiScheduler.h" />
+    <ClInclude Include="..\..\src\sspMsgList.h" />
+    <ClInclude Include="..\..\src\SSpObject.h" />
+    <ClInclude Include="..\..\src\sspParallelInput.h" />
+    <ClInclude Include="..\..\src\sspPlayManager.h" />
+    <ClInclude Include="..\..\src\SSpPlayObjects.h" />
+    <ClInclude Include="..\..\src\sspPools.h" />
+    <ClInclude Include="..\..\src\sspResetManager.h" />
+    <ClInclude Include="..\..\src\sspScheduleObjects.h" />
+    <ClInclude Include="..\..\src\sspScheduler.h" />
+    <ClInclude Include="..\..\src\sspSetting.h" />
+    <ClInclude Include="..\..\src\SSpStream.h" />
+    <ClInclude Include="..\..\src\SSpStreamMixer.h" />
+    <ClInclude Include="..\..\src\sspStringObjects.h" />
+    <ClInclude Include="..\..\src\SSpTasks.h" />
+    <ClInclude Include="..\..\src\SSpUtility.h" />
+    <ClInclude Include="..\..\src\SSpValues.h" />
+    <ClInclude Include="..\..\src\sspWatchdog.h" />
+    <ClInclude Include="..\..\src\sspWatchdogDecision.h" />
+    <ClInclude Include="..\..\src\sspWatchdogRunDlg.h" />
+    <ClInclude Include="..\..\src\sspWavControlObject.h" />
+    <ClInclude Include="..\..\src\sspWavDevice.h" />
+    <ClInclude Include="..\..\src\StartStopDialog.h" />
+    <ClInclude Include="..\..\src\StdAfx.h" />
+    <ClInclude Include="..\..\src\StreamDialog.h" />
+    <ClInclude Include="..\..\src\ValueDialog.h" />
+    <ClInclude Include="..\..\src\watchdog_ocx.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="..\..\src\ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="..\..\src\SoundSpace.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\res\SoundSpace.rc2" />
+    <None Include="..\..\src\SoundSpace.reg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\..\res\SoundSpace.ico" />
+    <Image Include="..\..\res\SoundSpaceDoc.ico" />
+    <Image Include="..\..\res\Toolbar.bmp" />
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{4748604F-95B0-4D31-AE9F-8FE268DC2BDF}</ProjectGuid>
+    <RootNamespace>SoundSpace</RootNamespace>
+    <SccProjectName>
+    </SccProjectName>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccProvider>
+    </SccProvider>
+    <Keyword>MFCProj</Keyword>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseOfMfc>Dynamic</UseOfMfc>
+    <PlatformToolset>v120</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseOfMfc>Dynamic</UseOfMfc>
+    <PlatformToolset>v120</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Template|Win32'">
+    <PlatformToolset>v120</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC71.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC71.props" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.40219.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\..\..\build\win-x86\release\bin\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\..\..\build\win-x86\release\obj\SoundSpace\</IntDir>
+    <IgnoreImportLibrary Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</IgnoreImportLibrary>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkIncremental>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\..\..\..\build\win-x86\debug\bin\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\..\..\..\build\win-x86\debug\obj\SoundSpace\</IntDir>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</LinkIncremental>
+    <ExecutablePath Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">C:\Program Files (x86)\Windows Kits\8.1\bin\x86;$(VCInstallDir)bin;$(WindowsSdkDir)bin\NETFX 4.0 Tools;$(WindowsSdkDir)bin;$(VSInstallDir)Common7\Tools\bin;$(VSInstallDir)Common7\tools;$(VSInstallDir)Common7\ide;$(ProgramFiles)\HTML Help Workshop;$(FrameworkSDKDir)\bin;$(MSBuildToolsPath32);$(VSInstallDir);$(SystemRoot)\SysWow64;$(FxCopDir);$(PATH)</ExecutablePath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Midl>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MkTypLibCompatible>true</MkTypLibCompatible>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <TargetEnvironment>Win32</TargetEnvironment>
+      <TypeLibraryName>.\Release/SoundSpace.tlb</TypeLibraryName>
+    </Midl>
+    <ClCompile>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <AdditionalIncludeDirectories>..\..\..\..\ext\include;..\..\..\..\build\win-x86\release\inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;WATCHDOG_BB_ISA;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <StringPooling>true</StringPooling>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
+      <ProgramDataBaseFileName>$(IntDir)SoundSpace_local.pdb</ProgramDataBaseFileName>
+      <WarningLevel>Level3</WarningLevel>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <CompileAs>Default</CompileAs>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>_AFXDLL;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0414</Culture>
+    </ResourceCompile>
+    <Link>
+      <AdditionalOptions>/MACHINE:I386 %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalDependencies>winmm.lib;dsound.lib;CKController.lib;WatchdogAPI.lib;libsndfile.lib;inpout32.lib;uart.lib;i7000.lib;sspUtility.lib;sspMidiLib.lib;sspAudioLib.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>$(OutDir)SoundSpace.exe</OutputFile>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <AdditionalLibraryDirectories>..\..\..\..\build\win-x86\release\lib;..\..\..\..\ext\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <DelayLoadDLLs>CKController.dll; WatchdogAPI.dll;%(DelayLoadDLLs)</DelayLoadDLLs>
+      <SubSystem>Windows</SubSystem>
+      <SupportUnloadOfDelayLoadedDLL>false</SupportUnloadOfDelayLoadedDLL>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Midl>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MkTypLibCompatible>true</MkTypLibCompatible>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <TargetEnvironment>Win32</TargetEnvironment>
+      <TypeLibraryName>.\Debug/SoundSpace.tlb</TypeLibraryName>
+    </Midl>
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>..\..\..\..\ext\include;..\..\..\..\build\win-x86\debug\inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
+      <ProgramDataBaseFileName>$(IntDir)SoundSpace_local.pdb</ProgramDataBaseFileName>
+      <BrowseInformation>true</BrowseInformation>
+      <WarningLevel>Level3</WarningLevel>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <CompileAs>Default</CompileAs>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>_AFXDLL;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0414</Culture>
+    </ResourceCompile>
+    <Link>
+      <AdditionalOptions>/MACHINE:I386 %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalDependencies>winmm.lib;dsound.lib;CKController.lib;WatchdogApi.lib;inpout32.lib;uart.lib;i7000.lib;libsndfile.lib;sspUtility.lib;sspMidiLib.lib;sspAudioLib.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>$(OutDir)SoundSpace.exe</OutputFile>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <AdditionalLibraryDirectories>..\..\..\..\build\win-x86\debug\lib;..\..\..\..\ext\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <DelayLoadDLLs>CKController.dll; WatchdogAPI.dll;%(DelayLoadDLLs)</DelayLoadDLLs>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <ProgramDatabaseFile>$(OutDir)$(TargetName).pdb</ProgramDatabaseFile>
+    </Link>
+  </ItemDefinitionGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+  <ProjectExtensions>
+    <VisualStudio>
+      <UserProperties RESOURCE_FILE="SoundSpace.rc" />
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

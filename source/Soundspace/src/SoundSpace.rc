@@ -1,0 +1,2950 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON                    "res\\SoundSpace.ico"
+IDR_SOUNDSTYPE          ICON                    "res\\SoundSpaceDoc.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDR_MAINFRAME           BITMAP                  "res\\Toolbar.bmp"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Toolbar
+//
+
+IDR_MAINFRAME TOOLBAR  16, 15
+BEGIN
+    BUTTON      ID_FILE_NEW
+    BUTTON      ID_FILE_OPEN
+    BUTTON      ID_FILE_SAVE
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+IDR_MAINFRAME MENU 
+BEGIN
+    POPUP "&File"
+    BEGIN
+        MENUITEM "&New\tCtrl+N",                ID_FILE_NEW
+        MENUITEM "&Open...\tCtrl+O",            ID_FILE_OPEN
+        MENUITEM "&Save\tCtrl+S",               ID_FILE_SAVE
+        MENUITEM "Save &As...",                 ID_FILE_SAVE_AS
+        MENUITEM SEPARATOR
+        POPUP "Export"
+        BEGIN
+            MENUITEM "ASCII dump",                  ID_EXPORT_ASCIIDUMP
+            MENUITEM "Config errors",               ID_EXPORT_CONFIGERRORS
+            MENUITEM "Run-time log",                ID_EXPORT_RUN
+        END
+        MENUITEM SEPARATOR
+        MENUITEM "Recent File",                 ID_FILE_MRU_FILE1, GRAYED
+        MENUITEM SEPARATOR
+        MENUITEM "E&xit",                       ID_APP_EXIT
+    END
+    POPUP "&Edit"
+    BEGIN
+        POPUP "Devices"
+        BEGIN
+            MENUITEM "Audio ...",                   ID_DEVICES_AUDIO
+            MENUITEM "Midi ...",                    ID_DEVICES_MIDI
+            MENUITEM "Dmx ...",                     ID_DEVICES_DMX
+        END
+        MENUITEM "Streams ...",                 ID_STREAMS
+        MENUITEM "Inputs ...",                  ID_EDIT_INPUTS
+        MENUITEM SEPARATOR
+        MENUITEM "Values ...",                  ID_VALUES
+        MENUITEM "Conditionals ...",            ID_CONDITIONALS
+        MENUITEM "Strings ...",                 ID_EDIT_STRINGS
+        MENUITEM "Play objects ...",            ID_SOUND_OBJECTS
+        MENUITEM "Tasks ...",                   ID_SOUND_EVENTS
+        MENUITEM SEPARATOR
+        POPUP "Task list"
+        BEGIN
+            MENUITEM "Initial ...",                 ID_TASKLIST_INITIAL
+            MENUITEM "Triggered ...",               ID_TASKLIST_TRIGGERED
+            MENUITEM "Time ...",                    ID_TASKLIST_TIME
+        END
+    END
+    POPUP "&View"
+    BEGIN
+        MENUITEM "&Toolbar",                    ID_VIEW_TOOLBAR
+        MENUITEM "&Status Bar",                 ID_VIEW_STATUS_BAR
+        MENUITEM SEPARATOR
+        MENUITEM "Edit display",                ID_EDIT_DISPLAY
+    END
+    POPUP "&Settings"
+    BEGIN
+        MENUITEM "Startup/shutdown ...",        ID_SETTINGS_STARTUPSHUTDOWN
+        MENUITEM "Reset/watchdog ...",          ID_SETTINGS_RESET
+        MENUITEM SEPARATOR
+        MENUITEM "Preferences ...",             ID_SETTINGS_PREFERENCES
+    END
+    POPUP "&Help"
+    BEGIN
+        MENUITEM "&About SoundSpace...",        ID_APP_ABOUT
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Accelerator
+//
+
+IDR_MAINFRAME ACCELERATORS 
+BEGIN
+    "N",            ID_FILE_NEW,            VIRTKEY, CONTROL
+    "O",            ID_FILE_OPEN,           VIRTKEY, CONTROL
+    "S",            ID_FILE_SAVE,           VIRTKEY, CONTROL
+    "Z",            ID_EDIT_UNDO,           VIRTKEY, CONTROL
+    "X",            ID_EDIT_CUT,            VIRTKEY, CONTROL
+    "C",            ID_EDIT_COPY,           VIRTKEY, CONTROL
+    "V",            ID_EDIT_PASTE,          VIRTKEY, CONTROL
+    VK_BACK,        ID_EDIT_UNDO,           VIRTKEY, ALT
+    VK_DELETE,      ID_EDIT_CUT,            VIRTKEY, SHIFT
+    VK_INSERT,      ID_EDIT_COPY,           VIRTKEY, CONTROL
+    VK_INSERT,      ID_EDIT_PASTE,          VIRTKEY, SHIFT
+    VK_F6,          ID_NEXT_PANE,           VIRTKEY 
+    VK_F6,          ID_PREV_PANE,           VIRTKEY, SHIFT
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_ABOUTBOX DIALOGEX 0, 0, 217, 55
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "About SoundSpace"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    ICON            IDR_MAINFRAME,IDC_STATIC,11,17,20,20
+    LTEXT           "SoundSpace Version 1.0",IDC_STATIC,40,10,119,8,SS_NOPREFIX
+    LTEXT           "Copyright (C) 1999 - 2005",IDC_STATIC,40,25,119,8
+    DEFPUSHBUTTON   "OK",IDOK,178,7,32,14,WS_GROUP
+END
+
+IDD_SOUNDSPACE_FORM DIALOGEX 0, 0, 500, 285
+STYLE DS_SETFONT | WS_CHILD
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    PUSHBUTTON      "Start",IDC_START,73,18,50,14
+    PUSHBUTTON      "Stop",IDC_STOP,133,18,50,14
+    LTEXT           "Time:",IDC_STATIC,212,21,18,8
+    EDITTEXT        IDC_TIME,235,18,40,14,ES_AUTOHSCROLL
+    LTEXT           "Date:",IDC_STATIC,284,21,18,8
+    EDITTEXT        IDC_DATE,306,18,40,14,ES_AUTOHSCROLL
+    CONTROL         "",IDC_STATIC,"Static",SS_ETCHEDVERT,201,7,1,39
+    CONTROL         "",IDC_STATIC,"Static",SS_ETCHEDHORZ,7,45,488,1
+    LTEXT           "External",IDC_EXT_TEXT1,14,56,52,8
+    LTEXT           "External",IDC_EXT_TEXT2,76,56,52,8
+    LTEXT           "External",IDC_EXT_TEXT3,138,56,52,8
+    LTEXT           "External",IDC_EXT_TEXT4,200,56,52,8
+    LTEXT           "External",IDC_EXT_TEXT5,262,56,52,8
+    LTEXT           "External",IDC_EXT_TEXT6,324,56,52,8
+    LTEXT           "External",IDC_EXT_TEXT7,386,56,52,8
+    LTEXT           "External",IDC_EXT_TEXT8,448,56,52,8
+    LTEXT           "External",IDC_EXT_TEXT9,13,88,52,8
+    EDITTEXT        IDC_EXT_VALUE1,14,66,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EXT_VALUE2,76,66,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EXT_VALUE3,138,66,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EXT_VALUE4,200,66,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EXT_VALUE5,262,66,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EXT_VALUE6,324,66,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EXT_VALUE7,386,66,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EXT_VALUE8,448,66,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EXT_VALUE9,13,98,40,14,ES_AUTOHSCROLL
+    CONTROL         "",IDC_STATIC,"Static",SS_ETCHEDHORZ,7,135,488,1
+    LTEXT           "Master:",IDC_LAYER_TXT0,16,144,31,8
+    CONTROL         "Slider1",IDC_LAYER_VOLUME0,"msctls_trackbar32",TBS_VERT | TBS_BOTH | WS_TABSTOP,16,156,26,122
+    LTEXT           "Layer 1:",IDC_LAYER_TXT1,69,144,41,8
+    LTEXT           "Layer 2:",IDC_LAYER_TXT2,121,144,41,8
+    LTEXT           "Layer 3:",IDC_LAYER_TXT3,173,144,41,8
+    LTEXT           "Layer 4:",IDC_LAYER_TXT4,225,144,41,8
+    LTEXT           "Layer 5:",IDC_LAYER_TXT5,277,144,41,8
+    LTEXT           "Layer 6:",IDC_LAYER_TXT6,329,144,41,8
+    LTEXT           "Layer 7:",IDC_LAYER_TXT7,381,144,41,8
+    LTEXT           "Layer 8:",IDC_LAYER_TXT8,433,144,41,8
+    CONTROL         "Slider1",IDC_LAYER_VOLUME1,"msctls_trackbar32",TBS_VERT | TBS_BOTH | WS_TABSTOP,67,156,26,122
+    CONTROL         "Slider1",IDC_LAYER_VOLUME2,"msctls_trackbar32",TBS_VERT | TBS_BOTH | WS_TABSTOP,119,156,26,122
+    CONTROL         "Slider1",IDC_LAYER_VOLUME3,"msctls_trackbar32",TBS_VERT | TBS_BOTH | WS_TABSTOP,171,156,26,122
+    CONTROL         "Slider1",IDC_LAYER_VOLUME4,"msctls_trackbar32",TBS_VERT | TBS_BOTH | WS_TABSTOP,223,156,26,122
+    CONTROL         "Slider1",IDC_LAYER_VOLUME5,"msctls_trackbar32",TBS_VERT | TBS_BOTH | WS_TABSTOP,275,156,26,122
+    CONTROL         "Slider1",IDC_LAYER_VOLUME6,"msctls_trackbar32",TBS_VERT | TBS_BOTH | WS_TABSTOP,327,156,26,122
+    CONTROL         "Slider1",IDC_LAYER_VOLUME7,"msctls_trackbar32",TBS_VERT | TBS_BOTH | WS_TABSTOP,379,156,26,122
+    CONTROL         "Slider1",IDC_LAYER_VOLUME8,"msctls_trackbar32",TBS_VERT | TBS_BOTH | WS_TABSTOP,431,156,26,122
+    PUSHBUTTON      "Initialize",IDC_INITIALIZE,13,18,50,14
+    LTEXT           "External",IDC_EXT_TEXT10,76,88,52,8
+    LTEXT           "External",IDC_EXT_TEXT11,138,88,52,8
+    LTEXT           "External",IDC_EXT_TEXT12,200,88,52,8
+    LTEXT           "External",IDC_EXT_TEXT13,262,88,52,8
+    LTEXT           "External",IDC_EXT_TEXT14,324,88,52,8
+    LTEXT           "External",IDC_EXT_TEXT15,386,88,52,8
+    LTEXT           "External",IDC_EXT_TEXT16,448,88,52,8
+    EDITTEXT        IDC_EXT_VALUE10,76,98,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EXT_VALUE11,138,98,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EXT_VALUE12,200,98,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EXT_VALUE13,262,98,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EXT_VALUE14,324,98,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EXT_VALUE15,386,98,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EXT_VALUE16,448,98,40,14,ES_AUTOHSCROLL
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,0,0,1
+ PRODUCTVERSION 1,0,0,1
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904b0"
+        BEGIN
+            VALUE "FileDescription", "SoundSpace MFC Application"
+            VALUE "FileVersion", "1, 0, 0, 1"
+            VALUE "InternalName", "SoundSpace"
+            VALUE "LegalCopyright", "Copyright (C) 1999"
+            VALUE "OriginalFilename", "SoundSpace.EXE"
+            VALUE "ProductName", "SoundSpace Application"
+            VALUE "ProductVersion", "1, 0, 0, 1"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1200
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO 
+BEGIN
+    IDD_ABOUTBOX, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 210
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 48
+    END
+
+    IDD_SOUNDSPACE_FORM, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 493
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 278
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE 
+BEGIN
+    IDR_MAINFRAME           "SoundSpace\n\nSoundS\nSoundS Files (*.ssp)\n.ssp\nSoundSpace.Document\nSoundS Document"
+END
+
+STRINGTABLE 
+BEGIN
+    AFX_IDS_APP_TITLE       "SoundSpace"
+    AFX_IDS_IDLEMESSAGE     "Ready"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_INDICATOR_EXT        "EXT"
+    ID_INDICATOR_CAPS       "CAP"
+    ID_INDICATOR_NUM        "NUM"
+    ID_INDICATOR_SCRL       "SCRL"
+    ID_INDICATOR_OVR        "OVR"
+    ID_INDICATOR_REC        "REC"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_FILE_NEW             "Create a new document\nNew"
+    ID_FILE_OPEN            "Open an existing document\nOpen"
+    ID_FILE_CLOSE           "Close the active document\nClose"
+    ID_FILE_SAVE            "Save the active document\nSave"
+    ID_FILE_SAVE_AS         "Save the active document with a new name\nSave As"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_APP_ABOUT            "Display program information, version number and copyright\nAbout"
+    ID_APP_EXIT             "Quit the application; prompts to save documents\nExit"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_FILE_MRU_FILE1       "Open this document"
+    ID_FILE_MRU_FILE2       "Open this document"
+    ID_FILE_MRU_FILE3       "Open this document"
+    ID_FILE_MRU_FILE4       "Open this document"
+    ID_FILE_MRU_FILE5       "Open this document"
+    ID_FILE_MRU_FILE6       "Open this document"
+    ID_FILE_MRU_FILE7       "Open this document"
+    ID_FILE_MRU_FILE8       "Open this document"
+    ID_FILE_MRU_FILE9       "Open this document"
+    ID_FILE_MRU_FILE10      "Open this document"
+    ID_FILE_MRU_FILE11      "Open this document"
+    ID_FILE_MRU_FILE12      "Open this document"
+    ID_FILE_MRU_FILE13      "Open this document"
+    ID_FILE_MRU_FILE14      "Open this document"
+    ID_FILE_MRU_FILE15      "Open this document"
+    ID_FILE_MRU_FILE16      "Open this document"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_NEXT_PANE            "Switch to the next window pane\nNext Pane"
+    ID_PREV_PANE            "Switch back to the previous window pane\nPrevious Pane"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_WINDOW_SPLIT         "Split the active window into panes\nSplit"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_EDIT_CLEAR           "Erase the selection\nErase"
+    ID_EDIT_CLEAR_ALL       "Erase everything\nErase All"
+    ID_EDIT_COPY            "Copy the selection and put it on the Clipboard\nCopy"
+    ID_EDIT_CUT             "Cut the selection and put it on the Clipboard\nCut"
+    ID_EDIT_FIND            "Find the specified text\nFind"
+    ID_EDIT_PASTE           "Insert Clipboard contents\nPaste"
+    ID_EDIT_REPEAT          "Repeat the last action\nRepeat"
+    ID_EDIT_REPLACE         "Replace specific text with different text\nReplace"
+    ID_EDIT_SELECT_ALL      "Select the entire document\nSelect All"
+    ID_EDIT_UNDO            "Undo the last action\nUndo"
+    ID_EDIT_REDO            "Redo the previously undone action\nRedo"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_VIEW_TOOLBAR         "Show or hide the toolbar\nToggle ToolBar"
+    ID_VIEW_STATUS_BAR      "Show or hide the status bar\nToggle StatusBar"
+END
+
+STRINGTABLE 
+BEGIN
+    AFX_IDS_SCSIZE          "Change the window size"
+    AFX_IDS_SCMOVE          "Change the window position"
+    AFX_IDS_SCMINIMIZE      "Reduce the window to an icon"
+    AFX_IDS_SCMAXIMIZE      "Enlarge the window to full size"
+    AFX_IDS_SCNEXTWINDOW    "Switch to the next document window"
+    AFX_IDS_SCPREVWINDOW    "Switch to the previous document window"
+    AFX_IDS_SCCLOSE         "Close the active window and prompts to save the documents"
+END
+
+STRINGTABLE 
+BEGIN
+    AFX_IDS_SCRESTORE       "Restore the window to normal size"
+    AFX_IDS_SCTASKLIST      "Activate Task List"
+    IDS_MIDIOPEN_FAIL       "Failed to open MIDI device"
+    IDS_MIDICLOSE_FAIL      "Failed to close MIDI device"
+    IDS_TIMEOPEN_FAIL       "Failed to open timer"
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_IMPORTMIDI          "Failed to open Midi file"
+    IDS_MIDIFIL             "This is not a legal Midi file"
+    IDS_MIDIFILFORMAT       "The program is only reading Midi formats 0 and 1"
+    IDS_MIDITIDFORMAT       "Use MIDI-timing, not SMPTE-timing"
+    IDS_MIDISPOR            "Mistake on one of the tracks.\nAborts loading"
+    IDS_SPORANTALL          "Too many tracks.\nThe program only loads the first one"
+    IDS_MIDIFILTOM          "The program found no useable tracks"
+    IDS_MIDISLUTT           "Loading aborted too early.\nCan give problems when playing this sequence"
+    IDS_FAILOPEN_DSCONTROL  "Failed to open DirectSound Control file"
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_FAILREAD_DSCONTROL  "Failed to read DirectSound Control file"
+    IDS_FAIL_CREATEBUFFER   "Failed to create secondary DirectSound buffers"
+    IDS_FAIL_TIMERCAPS      "Failed to get Time capabilities"
+    IDS_TIME_INTERVAL       "Control interval is too large"
+    IDS_FAIL_INITDS         "Failed to initialize DirectSound"
+    IDS_FAIL_OPEN_MIDILIST  "Failed to open Midi Event List file"
+    IDS_FAIL_READ_MIDILIST  "Failed to read Midi Event List file"
+    IDS_WARNING_READ_MIDILIST 
+                            "Warning: Failed to read the specified number of Midi Events"
+    IDS_FAIL_WATCHDOG       "Failed to reset watchdog"
+    IDS_FAILOPEN_DMXSELECTFILE "Failed to open DMX select file"
+    IDS_FAILREAD_DMXSELECTFILE "Failed to read DMX select file"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_EDIT_DISPLAY         "Edit the SoundSpace display\nEdit Display"
+END
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////////////
+// Norwegian (Bokmal) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_NOR)
+#ifdef _WIN32
+LANGUAGE LANG_NORWEGIAN, SUBLANG_NORWEGIAN_BOKMAL
+#pragma code_page(1252)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_PREFPAGE_AUDIO DIALOGEX 0, 0, 155, 86
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Audio"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    COMBOBOX        IDC_FREQUENCY,79,14,48,56,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Sampling frequency:",IDC_STATIC,7,17,65,8
+    LTEXT           "Buffer length:",IDC_STATIC,7,39,43,8
+    LTEXT           "Update interval:",IDC_STATIC,7,59,51,8
+    EDITTEXT        IDC_BUFFER_LENGTH,79,34,48,14,ES_NUMBER
+    EDITTEXT        IDC_BUFFER_UPDATE,79,56,48,14,ES_NUMBER
+END
+
+IDD_PREFPAGE_FADETIMES DIALOGEX 0, 0, 170, 110
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Fade times"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    LTEXT           "Fade in:",IDC_STATIC,19,23,26,8
+    EDITTEXT        IDC_FADE_IN,78,20,14,14,ES_NUMBER
+    LTEXT           "seconds",IDC_STATIC,96,23,28,8
+    LTEXT           "Fade out:",IDC_STATIC,19,43,31,8
+    EDITTEXT        IDC_FADE_OUT,78,41,14,14,ES_NUMBER
+    LTEXT           "seconds",IDC_STATIC,96,44,28,8
+    LTEXT           "Volume change:",IDC_STATIC,19,64,52,8
+    EDITTEXT        IDC_VOLUME_CHANGE,78,62,14,14,ES_NUMBER
+    LTEXT           "seconds",IDC_STATIC,96,66,28,8
+END
+
+IDD_STREAM_DEVICES DIALOGEX 0, 0, 169, 342
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Devices and buffers"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    CONTROL         "Stereo",IDC_STEREO,"Button",BS_AUTORADIOBUTTON | WS_GROUP,84,19,37,10
+    CONTROL         "Mono",IDC_MONO,"Button",BS_AUTORADIOBUTTON,122,19,34,10
+    LISTBOX         IDC_AUDIO_DEVICE,45,34,108,78,LBS_NOINTEGRALHEIGHT | LBS_EXTENDEDSEL | WS_VSCROLL | WS_GROUP | WS_TABSTOP
+    EDITTEXT        IDC_PLAY_BUFFERS,46,139,20,14,ES_AUTOHSCROLL | ES_NUMBER
+    CONTROL         "Spin1",IDC_PBUFFER_SPIN,"msctls_updown32",UDS_SETBUDDYINT | UDS_AUTOBUDDY | UDS_ARROWKEYS,66,139,11,14
+    EDITTEXT        IDC_WAIT_BUFFERS,117,139,20,14,ES_AUTOHSCROLL | ES_NUMBER
+    CONTROL         "Spin1",IDC_WBUFFER_SPIN,"msctls_updown32",UDS_SETBUDDYINT | UDS_AUTOBUDDY | UDS_ARROWKEYS,137,139,11,14
+    CONTROL         "Enable",IDC_ENABLE_FADER,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,46,187,38,10
+    LISTBOX         IDC_VOLUME_DEVICE,45,202,108,78,LBS_NOINTEGRALHEIGHT | LBS_EXTENDEDSEL | WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "<< Select fader value >>",IDC_BTN_FADERVALUE,45,286,108,14
+    DEFPUSHBUTTON   "OK",IDOK,29,321,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,90,321,50,14
+    LTEXT           "Play:",IDC_STATIC,22,142,16,8
+    LTEXT           "Wait:",IDC_STATIC,90,142,18,8
+    LTEXT           "Devices:",IDC_STATIC,13,205,32,9
+    GROUPBOX        "Buffers",IDC_STATIC,7,126,155,38
+    GROUPBOX        "Volume fader",IDC_STATIC,7,173,155,135
+    GROUPBOX        "Channels:",IDC_STATIC,7,7,155,114
+    LTEXT           "Devices:",IDC_STATIC,13,34,32,14
+    LTEXT           "Display as:",IDC_STATIC,47,19,35,8
+END
+
+IDD_DEVICES_AUDIO DIALOGEX 0, 0, 150, 233
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Enable audio devices"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,7,212,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,93,212,50,14
+    LISTBOX         IDC_DS_DEVICE,7,18,135,84,LBS_NOINTEGRALHEIGHT | LBS_EXTENDEDSEL | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "DirectSound audio devices:",IDC_STATIC,7,8,88,8
+    LISTBOX         IDC_WAV_DEVICE,7,119,135,84,LBS_NOINTEGRALHEIGHT | LBS_EXTENDEDSEL | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "MME Wav audio devices (volume only):",IDC_STATIC,7,109,126,8
+END
+
+IDD_LIST_STREAMS DIALOGEX 0, 0, 129, 212
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Stream list"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    COMBOBOX        IDC_SELECT_TYPE,7,166,115,52,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    DEFPUSHBUTTON   "OK",IDOK,7,191,38,14
+    LISTBOX         IDC_SELECT_STREAM,7,7,114,145,LBS_NOINTEGRALHEIGHT | LBS_EXTENDEDSEL | WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "Edit",IDC_EDIT,45,152,38,14
+    PUSHBUTTON      "Replace",IDC_REPLACE,83,152,38,14
+    PUSHBUTTON      "Add",IDC_ADD,7,152,38,14
+    PUSHBUTTON      "Cancel",IDCANCEL,83,191,38,14
+END
+
+IDD_STREAM_BASIC DIALOGEX 0, 0, 167, 193
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Basic stream parameters"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,30,172,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,88,172,50,14
+    LTEXT           "TimeFactor:",IDC_STATIC,7,32,38,8
+    LTEXT           "SubStreams:",IDC_STATIC,7,56,41,8
+    LISTBOX         IDC_SUBSTREAM,52,54,108,63,LBS_NOINTEGRALHEIGHT | LBS_EXTENDEDSEL | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Name:",IDC_STATIC,7,10,22,8
+    EDITTEXT        IDC_STREAM_NAME,52,7,108,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "Load device setup ...",IDC_LOAD_DEVICE,52,139,108,14
+    PUSHBUTTON      "<< Select factor >>",IDC_SELECT_FACTOR,52,30,108,14
+    PUSHBUTTON      "Remove",IDC_REMOVE,90,117,38,14
+    PUSHBUTTON      "Add",IDC_ADD,52,117,38,14
+END
+
+IDD_LIST_VALUES DIALOGEX 0, 0, 128, 213
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Value List"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    COMBOBOX        IDC_SELECT_TYPE,7,166,114,97,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    DEFPUSHBUTTON   "OK",IDOK,7,192,38,14
+    LISTBOX         IDC_SELECT_VALUE,7,7,114,145,LBS_NOINTEGRALHEIGHT | LBS_EXTENDEDSEL | WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "Edit",IDC_EDIT,45,152,38,14
+    PUSHBUTTON      "Replace",IDC_REPLACE,83,152,38,14
+    PUSHBUTTON      "Add",IDC_ADD,7,152,38,14
+    PUSHBUTTON      "Cancel",IDCANCEL,83,192,38,14
+END
+
+IDD_VALUE_FLOAT DIALOG  0, 0, 116, 82
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Single number"
+FONT 8, "MS Sans Serif"
+BEGIN
+    EDITTEXT        IDC_VALUE,59,36,50,14
+    LTEXT           "Name:",IDC_STATIC,7,7,22,8
+    EDITTEXT        IDC_NAME,7,16,102,14,ES_AUTOHSCROLL
+    LTEXT           "Value:",IDC_STATIC,34,39,21,8
+    DEFPUSHBUTTON   "OK",IDOK,7,62,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,59,62,50,14
+END
+
+IDD_VALUE_CLOCK DIALOGEX 0, 0, 263, 105
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Clock to float mapping"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    LTEXT           "Start time: ",IDC_STATIC,7,45,34,8
+    EDITTEXT        IDC_HOUR1,47,44,14,12,0,WS_EX_TRANSPARENT
+    EDITTEXT        IDC_MINUTE1,67,44,14,12,0,WS_EX_TRANSPARENT
+    LTEXT           ":",IDC_STATIC,63,45,8,8
+    LTEXT           ":",IDC_STATIC,84,45,8,8
+    EDITTEXT        IDC_SECOND1,88,44,14,12,0,WS_EX_TRANSPARENT
+    DEFPUSHBUTTON   "OK",IDOK,206,7,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,206,24,50,14
+    LTEXT           "End time: ",IDC_STATIC,7,67,32,8
+    EDITTEXT        IDC_HOUR2,47,66,14,12,0,WS_EX_TRANSPARENT
+    EDITTEXT        IDC_MINUTE2,67,66,14,12,0,WS_EX_TRANSPARENT
+    LTEXT           ":",IDC_STATIC,63,67,8,8
+    LTEXT           ":",IDC_STATIC,84,67,8,8
+    EDITTEXT        IDC_SECOND2,88,66,14,12,0,WS_EX_TRANSPARENT
+    LTEXT           "Start value:",IDC_STATIC,114,45,37,8
+    EDITTEXT        IDC_STARTVALUE,154,44,28,12
+    LTEXT           "End value:",IDC_STATIC,114,66,35,8
+    EDITTEXT        IDC_ENDVALUE,154,65,28,12
+    LTEXT           "Value name:",IDC_STATIC,7,8,40,8
+    EDITTEXT        IDC_NAME,48,7,134,14,ES_AUTOHSCROLL
+    LTEXT           "H",IDC_STATIC,51,33,8,8
+    LTEXT           "M",IDC_STATIC,71,33,8,8
+    LTEXT           "S",IDC_STATIC,92,33,8,8
+END
+
+IDD_VALUE_DATE DIALOGEX 0, 0, 239, 87
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Date to float mapping"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,182,7,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,182,24,50,14
+    LTEXT           "Start date:",IDC_STATIC,7,45,34,8
+    EDITTEXT        IDC_DAY1,47,44,14,12,0,WS_EX_TRANSPARENT
+    EDITTEXT        IDC_MONTH1,67,44,14,12,0,WS_EX_TRANSPARENT
+    LTEXT           "/",IDC_STATIC,62,45,8,8
+    LTEXT           "End date:",IDC_STATIC,7,67,32,8
+    EDITTEXT        IDC_DAY2,47,66,14,12,0,WS_EX_TRANSPARENT
+    EDITTEXT        IDC_MONTH2,67,66,14,12,0,WS_EX_TRANSPARENT
+    LTEXT           "/",IDC_STATIC,62,67,8,8
+    LTEXT           "Start value:",IDC_STATIC,96,45,37,8
+    EDITTEXT        IDC_STARTVALUE,136,44,28,12
+    LTEXT           "End value:",IDC_STATIC,96,66,35,8
+    EDITTEXT        IDC_ENDVALUE,136,65,28,12
+    LTEXT           "Value name:",IDC_STATIC,7,8,40,8
+    EDITTEXT        IDC_NAME,48,7,116,14,ES_AUTOHSCROLL
+    LTEXT           "D",IDC_STATIC,51,33,8,8
+    LTEXT           "M",IDC_STATIC,71,33,8,8
+END
+
+IDD_VALUE_MAP DIALOG  0, 0, 116, 143
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Linear mapping of selected value"
+FONT 8, "MS Sans Serif"
+BEGIN
+    EDITTEXT        IDC_STARTVALUE1,42,71,28,12
+    EDITTEXT        IDC_ENDVALUE1,81,71,28,12
+    EDITTEXT        IDC_STARTVALUE2,42,90,28,12
+    EDITTEXT        IDC_ENDVALUE2,81,90,28,12
+    LTEXT           "Source:",IDC_STATIC,11,74,26,8
+    CTEXT           "---",IDC_STATIC,71,72,8,8
+    CTEXT           "---",IDC_STATIC,71,92,8,8
+    LTEXT           "Target:",IDC_STATIC,11,93,24,8
+    DEFPUSHBUTTON   "OK",IDOK,7,122,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,59,122,50,14
+    LTEXT           "Name:",IDC_STATIC,7,7,22,8
+    EDITTEXT        IDC_NAME,7,16,102,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "<< Select source value>>",IDC_SOURCE_VALUE,7,38,102,14
+    LTEXT           "Range:",IDC_STATIC,63,59,24,8
+END
+
+IDD_VALUE_CONDITIONAL DIALOGEX 0, 0, 230, 193
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Conditional values"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,63,172,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,117,172,50,14
+    LTEXT           "Name:",IDC_STATIC,7,10,22,8
+    EDITTEXT        IDC_NAME,38,7,105,14,ES_AUTOHSCROLL
+    CONTROL         "List1",IDC_COND_VALUE_LIST,"SysListView32",LVS_REPORT | LVS_SINGLESEL | LVS_SHOWSELALWAYS | WS_BORDER | WS_TABSTOP,7,32,215,89,WS_EX_CLIENTEDGE
+    PUSHBUTTON      "<< Select default value >>",IDC_DEFAULT_VALUE,62,145,105,14
+    PUSHBUTTON      "Remove",IDC_REMOVE,76,122,38,14
+    PUSHBUTTON      "Add",IDC_ADD,38,122,38,14
+    PUSHBUTTON      "Up",IDC_UP,114,122,38,14
+    PUSHBUTTON      "Down",IDC_DOWN,152,122,38,14
+    LTEXT           "Default value:",IDC_STATIC,7,148,45,8
+END
+
+IDD_VALUE_RANDOM DIALOG  0, 0, 116, 106
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Random value limits"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,7,85,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,59,85,50,14
+    LTEXT           "Name:",IDC_STATIC,7,7,22,8
+    EDITTEXT        IDC_NAME,7,16,102,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "<< Select lower limit >>",IDC_LOWER_LIMIT,7,38,102,14
+    PUSHBUTTON      "<< Select upper limit >>",IDC_UPPER_LIMIT,7,60,102,14
+END
+
+IDD_LIST_CONDITIONALS DIALOGEX 0, 0, 128, 212
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Conditional List"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,7,191,38,14
+    LISTBOX         IDC_SELECT_CONDITIONAL,7,7,114,145,LBS_NOINTEGRALHEIGHT | LBS_EXTENDEDSEL | WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_SELECT_TYPE,7,166,114,116,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "Edit",IDC_EDIT,45,152,38,14
+    PUSHBUTTON      "Replace",IDC_REPLACE,83,152,38,14
+    PUSHBUTTON      "Add",IDC_ADD,7,152,38,14
+    PUSHBUTTON      "Cancel",IDCANCEL,83,191,38,14
+END
+
+IDD_COND_BOOLEAN DIALOGEX 0, 0, 116, 99
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Select Boolean value"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    EDITTEXT        IDC_NAME,7,16,102,14,ES_AUTOHSCROLL
+    CONTROL         "False",IDC_FALSE,"Button",BS_AUTORADIOBUTTON | WS_GROUP,35,40,33,10
+    CONTROL         "True",IDC_TRUE,"Button",BS_AUTORADIOBUTTON,35,57,31,10
+    DEFPUSHBUTTON   "OK",IDOK,7,78,50,14,WS_GROUP
+    PUSHBUTTON      "Cancel",IDCANCEL,59,78,50,14
+    LTEXT           "Name:",IDC_STATIC,7,7,22,8
+END
+
+IDD_COND_RELATION DIALOGEX 0, 0, 258, 113
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Set value relation"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    EDITTEXT        IDC_NAME,48,6,111,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "<< Select value >>",IDC_TESTVALUE_BTN,48,30,111,14
+    PUSHBUTTON      "<< Select value >>",IDC_THRESHOLD_BTN,48,54,111,14
+    CONTROL         "Equal",IDC_EQUAL,"Button",BS_AUTORADIOBUTTON | WS_GROUP,181,20,34,10
+    CONTROL         "Unequal",IDC_UNEQUAL,"Button",BS_AUTORADIOBUTTON,181,33,43,10
+    CONTROL         "Smaller",IDC_SMALLER,"Button",BS_AUTORADIOBUTTON,181,47,39,10
+    CONTROL         "Larger",IDC_LARGER,"Button",BS_AUTORADIOBUTTON,181,61,36,10
+    CONTROL         "Smaller or equal",IDC_SMALLEQ,"Button",BS_AUTORADIOBUTTON,181,76,66,10
+    CONTROL         "Larger or equal",IDC_LARGEQ,"Button",BS_AUTORADIOBUTTON,181,89,63,10
+    DEFPUSHBUTTON   "OK",IDOK,48,92,50,14,WS_GROUP
+    PUSHBUTTON      "Cancel",IDCANCEL,109,92,50,14
+    LTEXT           "Name:",IDC_STATIC,7,8,22,8
+    GROUPBOX        "Select relation",IDC_STATIC,173,6,78,100
+    LTEXT           "Test value:",IDC_STATIC,7,33,36,8
+    LTEXT           "Threshold:",IDC_STATIC,7,57,34,8
+END
+
+IDD_COND_RANGE DIALOGEX 0, 0, 197, 137
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Value in range"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    EDITTEXT        IDC_NAME,64,6,126,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "<< Select value >>",IDC_TESTVALUE_BTN,64,30,126,14
+    PUSHBUTTON      "<< Select value >>",IDC_LOWERVALUE_BTN,64,54,126,14
+    PUSHBUTTON      "<< Select value >>",IDC_UPPERVALUE_BTN,64,78,126,14
+    DEFPUSHBUTTON   "OK",IDOK,42,116,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,106,116,50,14
+    LTEXT           "Name:",IDC_STATIC,7,9,22,8
+    LTEXT           "Test value:",IDC_STATIC,7,33,36,8
+    LTEXT           "Lower threshold:",IDC_STATIC,7,57,53,8
+    LTEXT           "Upper threshold:",IDC_STATIC,7,81,53,8
+END
+
+IDD_COND_TIMEINT DIALOGEX 0, 0, 263, 79
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Inside time interval"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    EDITTEXT        IDC_NAME,69,6,126,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_HOUR1,68,37,14,12,0,WS_EX_TRANSPARENT
+    EDITTEXT        IDC_MINUTE1,88,37,14,12,0,WS_EX_TRANSPARENT
+    EDITTEXT        IDC_SECOND1,109,37,14,12,0,WS_EX_TRANSPARENT
+    EDITTEXT        IDC_HOUR2,68,58,14,12,0,WS_EX_TRANSPARENT
+    EDITTEXT        IDC_MINUTE2,88,58,14,12,0,WS_EX_TRANSPARENT
+    EDITTEXT        IDC_SECOND2,109,58,14,12,0,WS_EX_TRANSPARENT
+    DEFPUSHBUTTON   "OK",IDOK,206,7,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,206,24,50,14
+    LTEXT           ":",IDC_STATIC,84,60,8,8
+    LTEXT           ":",IDC_STATIC,105,60,8,8
+    LTEXT           ":",IDC_STATIC,105,38,8,8
+    LTEXT           "Conditional name:",IDC_STATIC,7,8,57,8
+    LTEXT           "Start time: ",IDC_STATIC,28,38,34,8
+    LTEXT           ":",IDC_STATIC,84,38,8,8
+    LTEXT           "End time: ",IDC_STATIC,28,60,32,8
+    LTEXT           "H",IDC_STATIC,72,26,8,8
+    LTEXT           "M",IDC_STATIC,92,26,8,8
+    LTEXT           "S",IDC_STATIC,113,26,8,8
+    LTEXT           "The time interval is inclusive.",IDC_STATIC,138,46,54,17
+    GROUPBOX        "",IDC_STATIC,134,36,62,31
+END
+
+IDD_COND_TIMERELATION DIALOGEX 0, 0, 264, 86
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Time relation"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    EDITTEXT        IDC_NAME,70,6,126,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_HOUR,69,36,14,12,0,WS_EX_TRANSPARENT
+    EDITTEXT        IDC_MINUTE,89,36,14,12,0,WS_EX_TRANSPARENT
+    EDITTEXT        IDC_SECOND,110,36,14,12,0,WS_EX_TRANSPARENT
+    CONTROL         "Before",IDC_BEFORE,"Button",BS_AUTORADIOBUTTON | WS_GROUP,69,56,37,10
+    CONTROL         "After",IDC_AFTER,"Button",BS_AUTORADIOBUTTON,69,69,31,10
+    DEFPUSHBUTTON   "OK",IDOK,207,7,50,14,WS_GROUP
+    PUSHBUTTON      "Cancel",IDCANCEL,207,24,50,14
+    LTEXT           "Conditional name:",IDC_STATIC,7,8,57,8
+    LTEXT           "Reference time: ",IDC_STATIC,7,37,53,8
+    LTEXT           "H",IDC_STATIC,73,25,8,8
+    LTEXT           "M",IDC_STATIC,93,25,8,8
+    LTEXT           "S",IDC_STATIC,114,25,8,8
+    LTEXT           ":",IDC_STATIC,106,37,8,8
+    LTEXT           "Select relation:",IDC_STATIC,7,56,48,8
+    LTEXT           ":",IDC_STATIC,85,37,8,8
+    LTEXT           "The time relations are non-inclusive.",IDC_STATIC,136,37,58,17
+    GROUPBOX        "",IDC_STATIC,132,28,65,31
+END
+
+IDD_COND_MINUTES DIALOGEX 0, 0, 267, 81
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Time in minutes after every hour"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    EDITTEXT        IDC_NAME,69,6,126,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_MINUTES,69,34,20,14,ES_NUMBER
+    CONTROL         "Equal",IDC_EQUAL,"Button",BS_AUTORADIOBUTTON | WS_GROUP,160,35,34,10
+    CONTROL         "Before",IDC_BEFORE,"Button",BS_AUTORADIOBUTTON,160,46,37,10
+    CONTROL         "After",IDC_AFTER,"Button",BS_AUTORADIOBUTTON,160,57,31,10
+    DEFPUSHBUTTON   "OK",IDOK,210,7,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,210,24,50,14
+    LTEXT           "Conditional name:",IDC_STATIC,7,8,57,8
+    LTEXT           "Minutes after hour: ",IDC_STATIC,7,37,62,8
+    LTEXT           "Relation:",IDC_STATIC,128,36,29,8
+    LTEXT           "The minute relations are non-inclusive.",IDC_STATIC,22,57,123,10
+END
+
+IDD_COND_DATEINT DIALOGEX 0, 0, 247, 71
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Set interval of dates"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    EDITTEXT        IDC_NAME,69,6,111,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_DAY1,69,33,14,12,0,WS_EX_TRANSPARENT
+    EDITTEXT        IDC_MONTH1,89,33,14,12,0,WS_EX_TRANSPARENT
+    EDITTEXT        IDC_DAY2,69,50,14,12,0,WS_EX_TRANSPARENT
+    EDITTEXT        IDC_MONTH2,89,50,14,12,0,WS_EX_TRANSPARENT
+    DEFPUSHBUTTON   "OK",IDOK,190,7,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,190,24,50,14
+    LTEXT           "Conditional name:",IDC_STATIC,7,8,57,8
+    LTEXT           "The date interval is inclusive.",IDC_STATIC,123,40,54,17
+    GROUPBOX        "",IDC_STATIC,118,31,62,31
+    LTEXT           "Start date:",IDC_STATIC,29,34,34,8
+    LTEXT           "/",IDC_STATIC,84,34,8,8
+    LTEXT           "End date:",IDC_STATIC,29,50,32,8
+    LTEXT           "/",IDC_STATIC,84,50,8,8
+    LTEXT           "D",IDC_STATIC,73,24,8,8
+    LTEXT           "M",IDC_STATIC,93,24,8,8
+END
+
+IDD_COND_OPERATION DIALOGEX 0, 0, 140, 150
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Logical AND/OR"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    EDITTEXT        IDC_NAME,7,17,126,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "Add",IDC_ADD,7,103,38,14
+    PUSHBUTTON      "Remove",IDC_REMOVE,45,103,38,14
+    LISTBOX         IDC_CONDITIONALS,7,47,126,56,LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    DEFPUSHBUTTON   "OK",IDOK,16,129,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,73,129,50,14
+    LTEXT           "Name:",IDC_STATIC,7,8,22,8
+    LTEXT           "Conditionals:",IDC_STATIC,7,38,41,8
+END
+
+IDD_COND_NOT DIALOGEX 0, 0, 116, 87
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Logical NOT operation"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    EDITTEXT        IDC_NAME,7,16,102,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "<< Select conditional >>",IDC_CONDITIONAL,7,39,102,14
+    DEFPUSHBUTTON   "OK",IDOK,7,66,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,59,66,50,14
+    LTEXT           "Name:",IDC_STATIC,7,7,22,8
+END
+
+IDD_LIST_OBJECTS DIALOGEX 0, 0, 128, 212
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Play Object List"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    COMBOBOX        IDC_SELECT_TYPE,7,166,114,139,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    DEFPUSHBUTTON   "OK",IDOK,7,191,38,14
+    LISTBOX         IDC_SELECT_OBJECT,7,7,114,145,LBS_NOINTEGRALHEIGHT | LBS_EXTENDEDSEL | WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "Edit",IDC_EDIT,45,152,38,14
+    PUSHBUTTON      "Replace",IDC_REPLACE,83,152,38,14
+    PUSHBUTTON      "Add",IDC_ADD,7,152,38,14
+    PUSHBUTTON      "Cancel",IDCANCEL,83,191,38,14
+END
+
+IDD_OBJECT_AUDIOFILE DIALOGEX 0, 0, 168, 98
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Select audio file"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,31,77,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,86,77,50,14
+    EDITTEXT        IDC_FILENAME,7,7,141,14,ES_AUTOHSCROLL | ES_READONLY
+    PUSHBUTTON      "...",IDC_BROWSE,148,7,13,14
+    CONTROL         "On",IDC_FOLDER,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,15,44,25,10
+    GROUPBOX        "Folder selection",IDC_STATIC,7,28,154,40
+    PUSHBUTTON      "<< name filter >>",IDC_FILTER,47,42,99,14
+END
+
+IDD_OBJECT_MIDIFILE DIALOGEX 0, 0, 171, 143
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Select MIDI file and device"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    LTEXT           "Tempo factor:",IDC_STATIC,7,101,45,8
+    PUSHBUTTON      "<< Select value >>",IDC_TEMPOFACTOR,56,98,93,14
+    DEFPUSHBUTTON   "OK",IDOK,30,122,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,91,122,50,14
+    EDITTEXT        IDC_FILENAME,7,7,141,14,ES_AUTOHSCROLL | ES_READONLY
+    PUSHBUTTON      "...",IDC_BROWSE,148,7,16,14
+    LTEXT           "MIDI Device:",IDC_STATIC,7,41,43,8
+    LISTBOX         IDC_DEVICES,56,39,93,53,LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    CONTROL         "Folder",IDC_CHECK1,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,114,25,35,10
+END
+
+IDD_OBJECT_DSFILE DIALOGEX 0, 0, 171, 62
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Select DirectSound control file"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,30,41,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,92,41,50,14
+    EDITTEXT        IDC_FILENAME,7,7,141,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "...",IDC_BROWSE,148,7,16,14
+    CONTROL         "Folder",IDC_CHECK1,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,115,25,35,10
+END
+
+IDD_OBJECT_SIMULTANEOUS DIALOGEX 0, 0, 194, 140
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Select sound objects for simultaneous playback"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,42,119,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,102,119,50,14
+    LTEXT           "Name:",IDC_STATIC,7,9,22,8
+    EDITTEXT        IDC_NAME,58,7,129,14,ES_AUTOHSCROLL
+    LTEXT           "Select objects:",IDC_STATIC,7,32,48,8
+    LISTBOX         IDC_OBJECTLIST,58,29,129,60,LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "Remove",IDC_REMOVE,96,90,38,14
+    PUSHBUTTON      "Add",IDC_ADD,58,90,38,14
+END
+
+IDD_OBJECT_SEQUENTIAL DIALOGEX 0, 0, 217, 140
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Select sound objects for sequential playback"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,53,119,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,113,119,50,14
+    LTEXT           "Name:",IDC_STATIC,7,9,22,8
+    EDITTEXT        IDC_NAME,58,7,129,14,ES_AUTOHSCROLL
+    LTEXT           "Select objects:",IDC_STATIC,7,32,48,8
+    LISTBOX         IDC_OBJECTLIST,58,30,152,60,LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "Remove",IDC_REMOVE,96,90,38,14
+    PUSHBUTTON      "Add",IDC_ADD,58,90,38,14
+    PUSHBUTTON      "Up",IDC_UP,134,90,38,14
+    PUSHBUTTON      "Down",IDC_DOWN,172,90,38,14
+END
+
+IDD_OBJECT_SILENCE DIALOGEX 0, 0, 157, 94
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Create silent interval"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,23,73,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,83,73,50,14
+    LTEXT           "Name:",IDC_STATIC,7,8,22,8
+    EDITTEXT        IDC_NAME,40,7,110,14,ES_AUTOHSCROLL
+    LTEXT           "Duration:",IDC_STATIC,7,33,30,8
+    LTEXT           "(duration is given in seconds)",IDC_STATIC,48,53,92,8
+    PUSHBUTTON      "<< Select duration >>",IDC_DURATION_BTN,40,31,110,14
+END
+
+IDD_OBJECT_RANDOM DIALOGEX 0, 0, 262, 166
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Select weighted sound objects for random pick"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,74,145,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,137,145,50,14
+    LTEXT           "Name:",IDC_STATIC,7,9,22,8
+    EDITTEXT        IDC_NAME,30,7,129,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "Remove",IDC_REMOVE,131,119,50,14
+    PUSHBUTTON      "Add",IDC_ADD,81,119,50,14
+    CONTROL         "",IDC_WEIGHT_LIST,"SysListView32",LVS_REPORT | LVS_SINGLESEL | LVS_SHOWSELALWAYS | WS_BORDER | WS_TABSTOP,7,30,248,89,WS_EX_CLIENTEDGE
+END
+
+IDD_OBJECT_CHAIN DIALOGEX 0, 0, 217, 209
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Select play objects in chain"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    LTEXT           "Name:",IDC_STATIC,7,9,22,8
+    EDITTEXT        IDC_NAME,32,7,115,14,ES_AUTOHSCROLL
+    LTEXT           "Chain length:",IDC_STATIC,65,165,42,8
+    EDITTEXT        IDC_CHAINLENGTH,117,162,23,14,ES_AUTOHSCROLL | ES_NUMBER
+    CONTROL         "Spin1",IDC_SPINLENGTH,"msctls_updown32",UDS_SETBUDDYINT | UDS_ALIGNRIGHT | UDS_AUTOBUDDY | UDS_ARROWKEYS,140,162,11,14
+    DEFPUSHBUTTON   "OK",IDOK,54,188,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,112,188,50,14
+    PUSHBUTTON      "Remove",IDC_REMOVE,108,137,47,14
+    PUSHBUTTON      "Add",IDC_ADD,61,137,47,14
+    CONTROL         "",IDC_CHAIN_LIST,"SysListView32",LVS_REPORT | LVS_SINGLESEL | LVS_SHOWSELALWAYS | WS_BORDER | WS_TABSTOP,7,30,203,107,WS_EX_CLIENTEDGE
+END
+
+IDD_OBJECT_CONDITIONAL DIALOGEX 0, 0, 229, 190
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Conditional selection of play objects"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,62,169,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,117,169,50,14
+    LTEXT           "Name:",IDC_STATIC,7,9,22,8
+    EDITTEXT        IDC_NAME,32,7,129,14,ES_AUTOHSCROLL
+    CONTROL         "",IDC_COND_OBJECT_LIST,"SysListView32",LVS_REPORT | LVS_SINGLESEL | LVS_SHOWSELALWAYS | WS_BORDER | WS_TABSTOP,7,32,215,89,WS_EX_CLIENTEDGE
+    PUSHBUTTON      "<< Select default object >>",IDC_DEFAULT_OBJECT,62,145,105,14
+    PUSHBUTTON      "Remove",IDC_REMOVE,76,122,38,14
+    PUSHBUTTON      "Add",IDC_ADD,38,122,38,14
+    PUSHBUTTON      "Up",IDC_UP,114,122,38,14
+    PUSHBUTTON      "Down",IDC_DOWN,152,122,38,14
+    LTEXT           "Default value:",IDC_STATIC,7,148,45,8
+END
+
+IDD_LIST_TASKS DIALOG  0, 0, 128, 202
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Task List"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,7,181,38,14
+    LISTBOX         IDC_SELECT_TASK,7,7,114,145,LBS_NOINTEGRALHEIGHT | LBS_EXTENDEDSEL | WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "Edit",IDC_EDIT,45,152,38,14
+    PUSHBUTTON      "Add",IDC_ADD,7,152,38,14
+    PUSHBUTTON      "Cancel",IDCANCEL,83,181,38,14
+END
+
+IDD_TASK_EDITOR DIALOGEX 0, 0, 256, 314
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Task Editor"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    EDITTEXT        IDC_NAME,7,16,105,14,ES_AUTOHSCROLL
+    COMBOBOX        IDC_PRIORITY,7,47,105,59,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    DEFPUSHBUTTON   "OK",IDOK,71,293,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,135,293,50,14
+    LTEXT           "Task name:",IDC_STATIC,40,7,38,8
+    LTEXT           "Priority level:",IDC_STATIC,39,37,40,8
+    LTEXT           "Play condition:",IDC_STATIC,171,37,47,8
+    LTEXT           "Volume factor:",IDC_STATIC,172,67,46,8
+    GROUPBOX        "Task messages",IDC_STATIC,7,99,242,184
+    LISTBOX         IDC_MESSAGELIST,15,206,225,53,LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "Remove",IDC_REMOVE_MSG,148,259,38,14
+    PUSHBUTTON      "Edit",IDC_EDIT_MSG,186,259,38,14
+    LTEXT           "Message list:",IDC_STATIC,15,195,42,8
+    PUSHBUTTON      "Add",IDC_ADD_MSG,15,259,38,14
+    LISTBOX         IDC_CONDITIONS,125,127,115,56,LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "Remove",IDC_REMOVE_COND,164,183,38,14
+    PUSHBUTTON      "Add",IDC_ADD_COND,126,183,38,14
+    LTEXT           "Conditionals:",IDC_STATIC,125,116,41,8
+    LTEXT           "Play object:",IDC_STATIC,176,7,38,8
+    PUSHBUTTON      "<< Select object >>",IDC_SELECT_OBJECT,141,16,108,14
+    PUSHBUTTON      "<< Select condition >>",IDC_SELECT_CONDITION,141,47,108,14
+    PUSHBUTTON      "<< Select factor >>",IDC_SELECT_FACTOR,141,77,108,14
+    COMBOBOX        IDC_SELECT_MSG,54,260,93,105,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    CONTROL         "On enter task",IDC_EVENT_SELECT1,"Button",BS_AUTORADIOBUTTON | WS_GROUP,36,131,59,10
+    CONTROL         "On start task",IDC_EVENT_SELECT2,"Button",BS_AUTORADIOBUTTON,36,144,56,10
+    CONTROL         "On end task",IDC_EVENT_SELECT3,"Button",BS_AUTORADIOBUTTON,36,157,55,10
+    CONTROL         "On exit task",IDC_EVENT_SELECT4,"Button",BS_AUTORADIOBUTTON,36,170,53,10
+    CONTROL         "",IDC_STATIC,"Static",SS_ETCHEDFRAME,16,127,99,56
+    LTEXT           "Event:",IDC_STATIC,16,116,22,8
+    PUSHBUTTON      "Edit",IDC_EDIT_COND,202,183,38,14
+END
+
+IDD_LIST_MESSAGES DIALOGEX 0, 0, 286, 135
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Message List Editor"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,229,7,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,229,26,50,14
+    LISTBOX         IDC_MESSAGELIST,7,7,208,109,LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "Remove",IDC_REMOVE,140,115,38,14
+    PUSHBUTTON      "Edit",IDC_EDIT,178,115,38,14
+    PUSHBUTTON      "Add",IDC_ADD,7,115,38,14
+    COMBOBOX        IDC_SELECT_MSG,46,116,93,105,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+END
+
+IDD_MESSAGE_LOAD DIALOG  0, 0, 104, 165
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Load message editor"
+FONT 8, "MS Sans Serif"
+BEGIN
+    LTEXT           "Receiving stream:",IDC_STATIC,7,7,58,8
+    CONTROL         "Current stream",IDC_RBTN_CURSTREAM,"Button",BS_AUTORADIOBUTTON | WS_GROUP,10,18,61,10
+    CONTROL         "",IDC_RBTN_STREAM,"Button",BS_AUTORADIOBUTTON,10,32,10,8
+    PUSHBUTTON      "<< Select stream >>",IDC_SELECT_STREAM,23,29,73,14,WS_GROUP
+    LTEXT           "Time until loading:",IDC_STATIC,7,57,58,8
+    PUSHBUTTON      "<< Select value >>",IDC_SELECT_VALUE,23,69,73,14,WS_GROUP
+    LTEXT           "Task to load:",IDC_STATIC,7,94,42,8
+    CONTROL         "Current task",IDC_RBTN_CURTASK,"Button",BS_AUTORADIOBUTTON | WS_GROUP,10,105,54,10
+    CONTROL         "",IDC_RBTN_TASK,"Button",BS_AUTORADIOBUTTON,10,119,12,8
+    PUSHBUTTON      "<< Select task >>",IDC_SELECT_TASK,23,116,73,14,WS_GROUP
+    DEFPUSHBUTTON   "OK",IDOK,7,144,40,14
+    PUSHBUTTON      "Cancel",IDCANCEL,57,144,40,14
+END
+
+IDD_MESSAGE_SOLO DIALOG  0, 0, 102, 101
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Solo/mute message parameters"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,7,80,41,14
+    PUSHBUTTON      "Cancel",IDCANCEL,54,80,41,14
+    LTEXT           "Message receiver:",IDC_STATIC,7,7,59,8
+    LTEXT           "Fade time:",IDC_STATIC,22,54,34,8
+    EDITTEXT        IDC_FADETIME,60,52,20,14,ES_NUMBER
+    CONTROL         "Current stream",IDC_RBTN_CURSTREAM,"Button",BS_AUTORADIOBUTTON | WS_GROUP,7,18,61,10
+    CONTROL         "",IDC_RBTN_STREAM,"Button",BS_AUTORADIOBUTTON,7,32,10,8
+    PUSHBUTTON      "<< Select stream >>",IDC_SELECT_STREAM,21,29,73,14,WS_GROUP
+END
+
+IDD_MESSAGE_START DIALOG  0, 0, 102, 76
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Start/stop message"
+FONT 8, "MS Sans Serif"
+BEGIN
+    LTEXT           "Message receiver:",IDC_STATIC,7,7,59,8
+    CONTROL         "Current stream",IDC_RBTN_CURSTREAM,"Button",BS_AUTORADIOBUTTON | WS_GROUP,7,18,61,10
+    CONTROL         "",IDC_RBTN_STREAM,"Button",BS_AUTORADIOBUTTON,7,32,10,8
+    PUSHBUTTON      "<< Select stream >>",IDC_SELECT_STREAM,21,29,73,14,WS_GROUP
+    DEFPUSHBUTTON   "OK",IDOK,7,55,41,14
+    PUSHBUTTON      "Cancel",IDCANCEL,54,55,41,14
+END
+
+IDD_MESSAGE_TRIGGERED DIALOGEX 0, 0, 372, 196
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Triggered message list editor"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,315,7,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,315,24,50,14
+    LTEXT           "Select message to add:",IDC_STATIC,114,37,75,8
+    COMBOBOX        IDC_MESSAGE,112,49,93,78,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "Edit message parameters",IDC_EDIT_MESSAGE,213,48,93,14
+    EDITTEXT        IDC_SHOW_MESSAGE,112,67,193,14,ES_AUTOHSCROLL | ES_READONLY
+    LISTBOX         IDC_MESSAGELIST,7,121,298,68,LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Triggered message list:",IDC_STATIC,7,110,73,8
+    PUSHBUTTON      "Add condition/message pair",IDC_ADD,101,95,110,14
+    LTEXT           "Select trigger condition:",IDC_STATIC,7,7,75,8
+    LISTBOX         IDC_CONDITIONAL,7,19,93,62,LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    DEFPUSHBUTTON   "Remove",IDC_REMOVE,315,156,50,14
+    PUSHBUTTON      "Edit message",IDC_EDIT,315,175,50,14
+    CONTROL         "",IDC_STATIC,"Static",SS_ETCHEDHORZ,211,101,94,1
+    CONTROL         "",IDC_STATIC,"Static",SS_ETCHEDHORZ,7,101,95,1
+END
+
+IDD_MESSAGE_CLOCK DIALOGEX 0, 0, 436, 197
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Absolute time message list editor"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,379,7,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,379,24,50,14
+    LTEXT           "Select message to add:",IDC_STATIC,179,37,75,8
+    COMBOBOX        IDC_MESSAGE,177,49,93,78,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "Edit message parameters",IDC_EDIT_MESSAGE,278,48,93,14
+    EDITTEXT        IDC_SHOW_MESSAGE,177,67,193,14,ES_AUTOHSCROLL | ES_READONLY
+    LISTBOX         IDC_MESSAGELIST,7,121,363,68,LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Timed conditional message list:",IDC_STATIC,7,110,98,8
+    PUSHBUTTON      "Add timed conditional message",IDC_ADD,133,95,110,14
+    LTEXT           "Select additional condition:",IDC_STATIC,72,7,86,8
+    LISTBOX         IDC_CONDITIONAL,72,19,93,62,LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    DEFPUSHBUTTON   "Remove",IDC_REMOVE,379,156,50,14
+    PUSHBUTTON      "Edit message",IDC_EDIT,379,175,50,14
+    CONTROL         "",IDC_STATIC,"Static",SS_ETCHEDHORZ,244,101,126,1
+    CONTROL         "",IDC_STATIC,"Static",SS_ETCHEDHORZ,7,101,126,1
+    LTEXT           "Select time: ",IDC_STATIC,9,47,40,8
+    EDITTEXT        IDC_HOUR,7,69,14,12,ES_NUMBER,WS_EX_TRANSPARENT
+    EDITTEXT        IDC_MINUTE,27,69,14,12,ES_NUMBER,WS_EX_TRANSPARENT
+    LTEXT           ":",IDC_STATIC,23,71,8,8
+    LTEXT           ":",IDC_STATIC,44,71,8,8
+    EDITTEXT        IDC_SECOND,48,69,14,12,ES_NUMBER,WS_EX_TRANSPARENT
+    LTEXT           "H",IDC_STATIC,11,58,8,8
+    LTEXT           "M",IDC_STATIC,31,58,8,8
+    LTEXT           "S",IDC_STATIC,52,58,8,8
+END
+
+IDD_OBJECT_MIDILIST DIALOGEX 0, 0, 173, 121
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Select MIDI event list file and device"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,30,100,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,94,100,50,14
+    EDITTEXT        IDC_FILENAME,7,7,141,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "...",IDC_BROWSE,148,7,18,14
+    LTEXT           "MIDI Device:",IDC_STATIC,7,41,43,8
+    LISTBOX         IDC_DEVICES,56,39,93,53,LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    CONTROL         "Folder",IDC_CHECK1,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,115,26,35,10
+END
+
+IDD_COND_PLAYING DIALOGEX 0, 0, 140, 156
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Any objects playing?"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    EDITTEXT        IDC_NAME,7,18,126,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "Add",IDC_ADD,7,103,38,14
+    PUSHBUTTON      "Remove",IDC_REMOVE,45,103,38,14
+    LISTBOX         IDC_PLAYOBJECTS,7,47,126,56,LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    DEFPUSHBUTTON   "OK",IDOK,13,135,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,73,135,50,14
+    LTEXT           "Name:",IDC_STATIC,7,8,22,8
+    LTEXT           "Play objects:",IDC_STATIC,7,38,41,8
+END
+
+IDD_MESSAGE_VOLUME DIALOG  0, 0, 103, 142
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Volume message parameters"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,7,121,41,14
+    PUSHBUTTON      "Cancel",IDCANCEL,54,121,41,14
+    LTEXT           "Message receiver:",IDC_STATIC,7,7,59,8
+    LTEXT           "Fade time:",IDC_STATIC,21,91,34,8
+    EDITTEXT        IDC_FADETIME,59,89,20,14,ES_NUMBER
+    CONTROL         "Current stream",IDC_RBTN_CURSTREAM,"Button",BS_AUTORADIOBUTTON | WS_GROUP,7,18,61,10
+    CONTROL         "",IDC_RBTN_STREAM,"Button",BS_AUTORADIOBUTTON,7,32,10,8
+    PUSHBUTTON      "<< Select stream >>",IDC_SELECT_STREAM,21,29,73,14,WS_GROUP
+    LTEXT           "Stream volume:",IDC_STATIC,7,54,50,8
+    PUSHBUTTON      "<< Select value >>",IDC_SELECT_VOLUME,7,65,89,14
+END
+
+IDD_OBJECT_DISTRIBUTION DIALOG  0, 0, 208, 276
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Time distribution object"
+FONT 8, "MS Sans Serif"
+BEGIN
+    EDITTEXT        IDC_NAME,63,7,129,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "<< Select object >>",IDC_SELECT_OBJECT,63,33,129,14
+    PUSHBUTTON      "<< Select condition >>",IDC_SELECT_CONDITION,63,56,129,14
+    PUSHBUTTON      "<< Select start >>",IDC_SELECT_START,63,100,129,14
+    CONTROL         "End:",IDC_END_DISTRIBUTION,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,26,127,31,10
+    PUSHBUTTON      "<< Select end >>",IDC_SELECT_END,63,125,129,14
+    CONTROL         "Time:",IDC_RADIO_TIMEDURATION,"Button",BS_AUTORADIOBUTTON | WS_GROUP,21,179,33,10
+    CONTROL         "Count:",IDC_RADIO_COUNTDURATION,"Button",BS_AUTORADIOBUTTON,21,201,37,10
+    CONTROL         "Loop condition only",IDC_RADIO_CONDITION_ONLY,"Button",BS_AUTORADIOBUTTON,21,223,77,10
+    PUSHBUTTON      "<< Select duration >>",IDC_SELECT_DURATION,63,177,129,14,WS_GROUP
+    PUSHBUTTON      "<< Select count >>",IDC_SELECT_COUNT,63,199,129,14
+    LTEXT           "Start:",IDC_STATIC,39,103,18,8
+    LTEXT           "Object name:",IDC_STATIC,14,9,43,8
+    LTEXT           "Loop object:",IDC_STATIC,17,34,40,8
+    LTEXT           "Loop condition:",IDC_STATIC,7,59,50,8
+    GROUPBOX        "Time distribution intervals",IDC_STATIC,7,87,194,64
+    GROUPBOX        "Loop duration given by",IDC_STATIC,7,161,194,78
+    DEFPUSHBUTTON   "OK",IDOK,49,255,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,109,255,50,14
+END
+
+IDD_SETTINGS_STARTSTOP DIALOGEX 0, 0, 123, 193
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Start and stop"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    CONTROL         "Enable",IDC_ENABLE_INTERVAL,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,46,19,38,10
+    CONTROL         "",IDC_STARTTIME,"SysDateTimePick32",DTS_RIGHTALIGN | DTS_UPDOWN | WS_TABSTOP | 0x8,46,34,50,15
+    CONTROL         "",IDC_STOPTIME,"SysDateTimePick32",DTS_RIGHTALIGN | DTS_UPDOWN | WS_TABSTOP | 0x8,46,54,50,15
+    DEFPUSHBUTTON   "OK",IDOK,9,172,50,14,WS_GROUP
+    PUSHBUTTON      "Cancel",IDCANCEL,63,172,50,14
+    GROUPBOX        "Daily interval",IDC_STATIC,9,7,104,70
+    LTEXT           "Start:",IDC_STATIC,19,37,18,8
+    LTEXT           "Stop:",IDC_STATIC,19,57,18,8
+    GROUPBOX        "Action on empty playlist:",IDC_STATIC,9,126,104,37
+    COMBOBOX        IDC_EMPTYACTION,19,142,84,44,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    GROUPBOX        "Action on automatic start:",IDC_STATIC,9,83,104,37
+    COMBOBOX        IDC_STARTACTION,19,99,84,44,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+END
+
+IDD_MESSAGE_DIALOG DIALOGEX 0, 0, 318, 49
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Add Message"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,261,7,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,261,28,50,14
+    LTEXT           "Select message:",IDC_STATIC,7,8,53,8
+    COMBOBOX        IDC_MESSAGE,64,7,93,78,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "Edit parameters",IDC_EDIT_MESSAGE,168,7,70,14
+    EDITTEXT        IDC_SHOW_MESSAGE,7,28,231,14,ES_AUTOHSCROLL | ES_READONLY
+END
+
+IDD_LAYOUT_DIALOG DIALOG  0, 0, 140, 204
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "SoundSpace Layout"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,7,183,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,83,183,50,14
+    LTEXT           "Fader display (select):",IDC_STATIC,7,97,69,8
+    LISTBOX         IDC_FADER_LIST,7,106,126,63,LBS_NOINTEGRALHEIGHT | LBS_EXTENDEDSEL | WS_VSCROLL | WS_TABSTOP
+    LISTBOX         IDC_VALUE_LIST,7,15,126,56,LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "Remove",IDC_REMOVE,45,71,38,14
+    PUSHBUTTON      "Add",IDC_ADD,7,71,38,14
+    LTEXT           "Value display:",IDC_STATIC,7,7,44,8
+END
+
+IDD_OBJECT_DMXSELECTFILE DIALOGEX 0, 0, 171, 167
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "DMX select file"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,30,146,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,91,146,50,14
+    EDITTEXT        IDC_FILENAME,7,7,141,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "...",IDC_BROWSE,147,7,17,14
+    LTEXT           "DMX device:",IDC_STATIC,7,41,42,8
+    LISTBOX         IDC_DEVICES,55,39,93,28,LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Duration:",IDC_STATIC,7,102,30,8
+    PUSHBUTTON      "<< Select duration >>",IDC_BTN_DURATION,55,100,93,14
+    LTEXT           "Select Index:",IDC_STATIC,7,126,42,8
+    PUSHBUTTON      "<< Select index value >>",IDC_BTN_SELECTINDEX,55,123,93,14
+    LTEXT           "Select refresh interval (msec):",IDC_STATIC,7,77,94,8
+    EDITTEXT        IDC_REFRESH,108,76,40,14,ES_AUTOHSCROLL
+    CONTROL         "Folder",IDC_CHECK1,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,114,25,35,10
+END
+
+IDD_VALUE_INPUTRANGE DIALOG  0, 0, 116, 100
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Input value range"
+FONT 8, "MS Sans Serif"
+BEGIN
+    EDITTEXT        IDC_RANGE_MIN,59,36,50,14
+    LTEXT           "Name:",IDC_STATIC,7,7,22,8
+    EDITTEXT        IDC_NAME,7,16,102,14,ES_AUTOHSCROLL
+    LTEXT           "Min value:",IDC_STATIC,20,39,34,8
+    DEFPUSHBUTTON   "OK",IDOK,7,78,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,59,78,50,14
+    EDITTEXT        IDC_RANGE_MAX,59,56,50,14
+    LTEXT           "Max value:",IDC_STATIC,20,58,36,8
+END
+
+IDD_OBJECT_LINEARSELECT DIALOGEX 0, 0, 216, 173
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Linear value select object"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,55,152,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,110,152,50,14
+    LTEXT           "Name:",IDC_STATIC,7,8,22,8
+    EDITTEXT        IDC_NAME,58,7,151,14,ES_AUTOHSCROLL
+    LTEXT           "Select value:",IDC_STATIC,7,33,42,8
+    PUSHBUTTON      "<< Select input value >>",IDC_BTN_INPUTVALUE,58,30,110,14
+    LTEXT           "Select objects:",IDC_STATIC,7,55,48,8
+    LISTBOX         IDC_OBJECTLIST,58,53,150,60,LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "Remove",IDC_REMOVE,95,113,38,14
+    PUSHBUTTON      "Add",IDC_ADD,57,113,38,14
+    PUSHBUTTON      "Up",IDC_UP,133,113,38,14
+    PUSHBUTTON      "Down",IDC_DOWN,171,113,38,14
+END
+
+IDD_AUTOSTART_DLG DIALOGEX 0, 0, 118, 55
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Dialog"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    PUSHBUTTON      "Cancel",IDCANCEL,61,34,50,14
+    PUSHBUTTON      "OK",IDOK,7,34,50,14
+    LTEXT           "The program will start automatically in 5 seconds.",IDC_STATIC,7,7,104,19
+END
+
+IDD_VALUE_OPERATION DIALOG  0, 0, 140, 150
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Dialog"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,16,128,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,73,128,50,14
+    LTEXT           "Name:",IDC_STATIC,7,7,22,8
+    EDITTEXT        IDC_NAME,7,16,126,14,ES_AUTOHSCROLL
+    LISTBOX         IDC_VALUES,7,46,126,56,LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "Remove",IDC_REMOVE,45,102,38,14
+    PUSHBUTTON      "Add",IDC_ADD,7,102,38,14
+    LTEXT           "Values:",IDC_STATIC,7,37,24,8
+END
+
+IDD_DEVICES_MIDI DIALOGEX 0, 0, 149, 171
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Enable MIDI devices"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,7,150,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,92,150,50,14
+    LTEXT           "Midi output devices:",IDC_STATIC,7,7,64,8
+    LISTBOX         IDC_MIDIOUT_DEVICE,7,17,135,52,LBS_NOINTEGRALHEIGHT | LBS_EXTENDEDSEL | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Midi input devices:",IDC_STATIC,7,75,60,8
+    LISTBOX         IDC_MIDIIN_DEVICE,7,88,135,52,LBS_NOINTEGRALHEIGHT | LBS_EXTENDEDSEL | WS_VSCROLL | WS_TABSTOP
+END
+
+IDD_DEVICES_DMX DIALOGEX 0, 0, 149, 114
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Enable DMX devices"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,7,93,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,92,93,50,14
+    LTEXT           "DMX devices:",IDC_STATIC,7,7,64,8
+    LISTBOX         IDC_DMX_DEVICES,7,17,135,66,LBS_NOINTEGRALHEIGHT | LBS_EXTENDEDSEL | WS_VSCROLL | WS_TABSTOP
+END
+
+IDD_EDIT_COMBO DIALOGEX 0, 0, 120, 23
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_POPUP
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    COMBOBOX        IDC_COMBO,6,4,110,54,CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+END
+
+IDD_PREFPAGE_FILEPATH DIALOGEX 0, 0, 238, 111
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Files"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    EDITTEXT        IDC_DUMP_DIR,77,14,141,14,ES_AUTOHSCROLL | ES_READONLY
+    PUSHBUTTON      "...",IDC_DUMP_BROWSE,218,14,13,14
+    EDITTEXT        IDC_ERROR_DIR,77,38,141,14,ES_AUTOHSCROLL | ES_READONLY
+    PUSHBUTTON      "...",IDC_ERROR_BROWSE,218,38,13,14
+    EDITTEXT        IDC_LOG_DIR,77,62,141,14,ES_AUTOHSCROLL | ES_READONLY
+    PUSHBUTTON      "...",IDC_LOG_BROWSE,218,62,13,14
+    LTEXT           "ASCII dump:",IDC_STATIC,7,16,42,8
+    LTEXT           "Configuration errors:",IDC_STATIC,7,39,68,8
+    LTEXT           "Run-time log:",IDC_STATIC,7,63,44,8
+END
+
+IDD_LIST_INPUTS DIALOGEX 0, 0, 128, 214
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Input list"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    COMBOBOX        IDC_SELECT_TYPE,7,166,114,97,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    DEFPUSHBUTTON   "OK",IDOK,7,192,38,14
+    LISTBOX         IDC_SELECT_INPUT,7,7,114,145,LBS_NOINTEGRALHEIGHT | LBS_EXTENDEDSEL | WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "Edit",IDC_EDIT,45,152,38,14
+    PUSHBUTTON      "Remove",IDC_REMOVE,83,152,38,14
+    PUSHBUTTON      "Add",IDC_ADD,7,152,38,14
+    PUSHBUTTON      "Cancel",IDCANCEL,83,192,38,14
+END
+
+IDD_INPUT_ICPANALOG DIALOGEX 0, 0, 116, 166
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Dialog"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    EDITTEXT        IDC_ADDRESS,64,60,28,12
+    EDITTEXT        IDC_UPDATEINT,64,102,28,12
+    LTEXT           "Address:",IDC_STATIC,30,62,30,8
+    LTEXT           "Update interval:",IDC_STATIC,7,104,54,8
+    DEFPUSHBUTTON   "OK",IDOK,7,145,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,59,145,50,14
+    LTEXT           "Name:",IDC_STATIC,7,7,22,8
+    EDITTEXT        IDC_NAME,7,16,102,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "<< Select input value>>",IDC_INPUT_VALUE,7,122,102,14
+    EDITTEXT        IDC_CHANNEL,64,81,28,12
+    LTEXT           "Channel:",IDC_STATIC,30,83,32,8
+    LTEXT           "sec.",IDC_STATIC,95,104,14,8
+    LTEXT           "Port:",IDC_STATIC,43,40,17,8
+    COMBOBOX        IDC_SELECTPORT,64,39,37,40,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+END
+
+IDD_INPUT_ICPDIGITAL DIALOGEX 0, 0, 116, 169
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Dialog"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    EDITTEXT        IDC_ADDRESS,64,59,28,12
+    EDITTEXT        IDC_UPDATEINT,64,101,28,12
+    LTEXT           "Address:",IDC_STATIC,30,61,30,8
+    LTEXT           "Update interval:",IDC_STATIC,7,103,54,8
+    DEFPUSHBUTTON   "OK",IDOK,7,148,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,59,148,50,14
+    LTEXT           "Name:",IDC_STATIC,7,7,22,8
+    EDITTEXT        IDC_NAME,7,16,102,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "<< Select input conditional>>",IDC_INPUT_CONDITIONAL,7,121,102,14
+    EDITTEXT        IDC_CHANNEL,64,80,28,12
+    LTEXT           "Channel:",IDC_STATIC,30,82,32,8
+    LTEXT           "sec.",IDC_STATIC,95,103,14,8
+    LTEXT           "Port:",IDC_STATIC,42,39,17,8
+    COMBOBOX        IDC_SELECTPORT,63,38,37,40,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+END
+
+IDD_INPUT_PARALLEL DIALOGEX 0, 0, 139, 343
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Dialog"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,7,322,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,82,322,50,14
+    LTEXT           "Name:",IDC_STATIC,7,7,22,8
+    EDITTEXT        IDC_NAME,7,16,125,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "<< Select conditional>>",IDC_COND1,39,83,93,14
+    EDITTEXT        IDC_PORT,64,39,28,12
+    LTEXT           "Port:",IDC_STATIC,43,40,17,8
+    EDITTEXT        IDC_UPDATEINT,64,60,28,12
+    LTEXT           "Update interval:",IDC_STATIC,7,62,54,8
+    LTEXT           "sec.",IDC_STATIC,95,62,14,8
+    CONTROL         "D0",IDC_ON1,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,86,25,10
+    PUSHBUTTON      "<< Select conditional>>",IDC_COND2,39,101,93,14
+    CONTROL         "D1",IDC_ON2,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,104,25,10
+    PUSHBUTTON      "<< Select conditional>>",IDC_COND3,39,119,93,14
+    CONTROL         "D2",IDC_ON3,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,122,25,10
+    PUSHBUTTON      "<< Select conditional>>",IDC_COND4,39,137,93,14
+    CONTROL         "D3",IDC_ON4,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,140,25,10
+    PUSHBUTTON      "<< Select conditional>>",IDC_COND5,39,155,93,14
+    CONTROL         "D4",IDC_ON5,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,158,25,10
+    PUSHBUTTON      "<< Select conditional>>",IDC_COND6,39,173,93,14
+    CONTROL         "D5",IDC_ON6,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,176,25,10
+    PUSHBUTTON      "<< Select conditional>>",IDC_COND7,39,191,93,14
+    CONTROL         "D6",IDC_ON7,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,194,25,10
+    PUSHBUTTON      "<< Select conditional>>",IDC_COND8,39,209,93,14
+    CONTROL         "D7",IDC_ON8,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,212,25,10
+    PUSHBUTTON      "<< Select conditional>>",IDC_COND9,39,227,93,14
+    CONTROL         "ERR",IDC_ON9,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,230,29,10
+    PUSHBUTTON      "<< Select conditional>>",IDC_COND10,39,245,93,14
+    CONTROL         "SEL",IDC_ON10,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,248,27,10
+    PUSHBUTTON      "<< Select conditional>>",IDC_COND11,39,263,93,14
+    CONTROL         "PE",IDC_ON11,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,266,24,10
+    PUSHBUTTON      "<< Select conditional>>",IDC_COND12,39,281,93,14
+    CONTROL         "ACK",IDC_ON12,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,284,29,10
+    PUSHBUTTON      "<< Select conditional>>",IDC_COND13,39,299,93,14
+    CONTROL         "BSY",IDC_ON13,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,302,28,10
+END
+
+IDD_COND_DAYOFWEEK DIALOGEX 0, 0, 116, 164
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Dialog"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    EDITTEXT        IDC_NAME,7,16,102,14,ES_AUTOHSCROLL
+    CONTROL         "Sunday",IDC_WEEKDAY1,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,32,38,40,10
+    CONTROL         "Monday",IDC_WEEKDAY2,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,32,52,41,10
+    CONTROL         "Tuesday",IDC_WEEKDAY3,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,32,66,43,10
+    CONTROL         "Wednesday",IDC_WEEKDAY4,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,32,80,54,10
+    CONTROL         "Thursday",IDC_WEEKDAY5,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,32,94,46,10
+    CONTROL         "Friday",IDC_WEEKDAY6,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,32,108,36,10
+    CONTROL         "Saturday",IDC_WEEKDAY7,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,32,122,45,10
+    DEFPUSHBUTTON   "OK",IDOK,7,143,50,14,WS_GROUP
+    PUSHBUTTON      "Cancel",IDCANCEL,59,143,50,14
+    LTEXT           "Name:",IDC_STATIC,7,7,22,8
+END
+
+IDD_INPUT_MIDIEVENT DIALOGEX 0, 0, 116, 257
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Input MIDI event"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    EDITTEXT        IDC_NAME,7,16,102,14,ES_AUTOHSCROLL
+    COMBOBOX        IDC_COMBO1,58,36,51,45,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    EDITTEXT        IDC_CHANNEL_LOW,58,65,23,12,ES_NUMBER
+    EDITTEXT        IDC_CHANNEL_HIGH,86,65,23,12,ES_NUMBER
+    EDITTEXT        IDC_DATA1_LOW,58,83,23,12,ES_NUMBER
+    EDITTEXT        IDC_DATA1_HIGH,86,83,23,12,ES_NUMBER
+    EDITTEXT        IDC_DATA2_LOW,58,101,23,12,ES_NUMBER
+    EDITTEXT        IDC_DATA2_HIGH,86,101,23,12,ES_NUMBER
+    EDITTEXT        IDC_UPDATEINT,64,192,28,12
+    PUSHBUTTON      "<< Select input conditional>>",IDC_INPUT_CONDITIONAL,7,211,102,14
+    DEFPUSHBUTTON   "OK",IDOK,7,236,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,59,236,50,14
+    LTEXT           "Update interval:",IDC_STATIC,7,194,54,8
+    LTEXT           "Name:",IDC_STATIC,7,7,22,8
+    LTEXT           "sec.",IDC_STATIC,95,194,14,8
+    LTEXT           "Message type:",IDC_STATIC,7,38,48,8
+    CONTROL         "Channel:",IDC_CHANNEL,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,66,45,10
+    CONTROL         "Data 1:",IDC_DATA1,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,84,40,10
+    CONTROL         "Data 2:",IDC_DATA2,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,102,40,10
+    LTEXT           "Range:",IDC_STATIC,72,54,24,8
+    LISTBOX         IDC_DEVICES,7,131,102,53,LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "MIDI input device:",IDC_STATIC,27,121,60,8
+END
+
+IDD_MSGLIST_COND DIALOGEX 0, 0, 271, 198
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Conditional message list"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,78,177,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,142,177,50,14
+    LISTBOX         IDC_MESSAGELIST,55,86,208,53,LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "Remove",IDC_REMOVE_MSG,188,139,38,14
+    PUSHBUTTON      "Edit",IDC_EDIT_MSG,226,139,38,14
+    LTEXT           "Message list:",IDC_STATIC,7,87,42,8
+    PUSHBUTTON      "Add",IDC_ADD_MSG,55,139,38,14
+    LISTBOX         IDC_CONDITIONALS,54,7,115,56,LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "Remove",IDC_REMOVE_COND,93,62,38,14
+    PUSHBUTTON      "Add",IDC_ADD_COND,55,62,38,14
+    LTEXT           "Conditionals:",IDC_STATIC,7,7,41,8
+    COMBOBOX        IDC_SELECT_MSG,94,140,93,105,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "Edit",IDC_EDIT_COND,131,62,38,14
+END
+
+IDD_EDIT_CONTROL DIALOGEX 0, 0, 32, 23
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_POPUP
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    EDITTEXT        IDC_VALUE,4,4,24,15,ES_AUTOHSCROLL | ES_NUMBER
+END
+
+IDD_MSGLIST_CLOCK DIALOGEX 0, 0, 271, 276
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Time-triggered message list"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,78,255,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,142,255,50,14
+    LISTBOX         IDC_MESSAGELIST,55,164,208,53,LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "Remove",IDC_REMOVE_MSG,188,217,38,14
+    PUSHBUTTON      "Edit",IDC_EDIT_MSG,226,217,38,14
+    LTEXT           "Message list:",IDC_STATIC,7,165,42,8
+    PUSHBUTTON      "Add",IDC_ADD_MSG,55,217,38,14
+    LISTBOX         IDC_CONDITIONALS,54,85,115,56,LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "Remove",IDC_REMOVE_COND,93,140,38,14
+    PUSHBUTTON      "Add",IDC_ADD_COND,55,140,38,14
+    LTEXT           "Conditionals:",IDC_STATIC,7,85,41,8
+    COMBOBOX        IDC_SELECT_MSG,94,218,93,105,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "Edit",IDC_EDIT_COND,131,140,38,14
+    LISTBOX         IDC_CLOCKS,54,7,115,56,LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "Remove",IDC_REMOVE_CLOCK,93,62,38,14
+    PUSHBUTTON      "Add",IDC_ADD_CLOCK,55,62,38,14
+    LTEXT           "Time:",IDC_STATIC,7,7,41,8
+    PUSHBUTTON      "Edit",IDC_EDIT_CLOCK,131,62,38,14
+END
+
+IDD_EDIT_CLOCK DIALOGEX 0, 0, 71, 30
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_POPUP
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    CONTROL         "",IDC_TIMEPICKER,"SysDateTimePick32",DTS_RIGHTALIGN | DTS_UPDOWN | WS_TABSTOP | 0x8,7,7,57,16
+END
+
+IDD_MSGLIST_TRIGGER DIALOGEX 0, 0, 271, 291
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Triggered message list"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,78,270,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,142,270,50,14
+    LISTBOX         IDC_MESSAGELIST,55,191,208,53,LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "Remove",IDC_REMOVE_MSG,188,244,38,14
+    PUSHBUTTON      "Edit",IDC_EDIT_MSG,226,244,38,14
+    LTEXT           "Message list:",IDC_STATIC,7,192,42,8
+    PUSHBUTTON      "Add",IDC_ADD_MSG,55,244,38,14
+    LISTBOX         IDC_CONDITIONALS,55,112,115,56,LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "Remove",IDC_REMOVE_COND,93,167,38,14
+    PUSHBUTTON      "Add",IDC_ADD_COND,55,167,38,14
+    LTEXT           "Conditionals:",IDC_STATIC,7,112,41,8
+    COMBOBOX        IDC_SELECT_MSG,94,245,93,105,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "Edit",IDC_EDIT_COND,131,167,38,14
+    PUSHBUTTON      "Remove",IDC_REMOVE_TRIGGER,93,88,38,14
+    PUSHBUTTON      "Add",IDC_ADD_TRIGGER,55,88,38,14
+    LTEXT           "Trigger:",IDC_STATIC,7,7,41,8
+    CONTROL         "",IDC_TRIGGERS,"SysListView32",LVS_REPORT | LVS_SINGLESEL | LVS_SHOWSELALWAYS | WS_BORDER | WS_TABSTOP,55,7,208,81,WS_EX_CLIENTEDGE
+END
+
+IDD_SETTINGS_RESET DIALOGEX 0, 0, 152, 254
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Reset and watchdog"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,7,233,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,95,233,50,14
+    LTEXT           "Timeout after",IDC_STATIC,27,151,46,8
+    EDITTEXT        IDC_WATCHDOG_TIME,77,149,14,14,ES_NUMBER
+    LTEXT           "seconds",IDC_STATIC,99,151,28,8
+    CONTROL         "Enable: ",IDC_WATCHDOG_ENABLE,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,15,127,38,10
+    LTEXT           "Additional reset condition:",IDC_STATIC,34,67,84,8
+    PUSHBUTTON      "<< Select condition >>",IDC_SELECT_CONDITION,27,80,100,14
+    EDITTEXT        IDC_RESET_INTERVAL,69,24,14,12,ES_RIGHT,WS_EX_TRANSPARENT
+    GROUPBOX        "Reset conditions",IDC_STATIC,7,7,138,96
+    LTEXT           "Reset interval:",IDC_STATIC,18,26,48,8
+    COMBOBOX        IDC_WATCHDOG_TYPE,55,124,84,51,CBS_DROPDOWN | WS_VSCROLL | WS_TABSTOP
+    GROUPBOX        "Watchdog",IDC_STATIC,7,111,138,62
+    COMBOBOX        IDC_RESET_TIMEUNIT,93,24,41,35,CBS_DROPDOWN | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Time of day:",IDC_STATIC,18,45,41,8
+    CONTROL         "",IDC_TIMEOFDAY,"SysDateTimePick32",DTS_RIGHTALIGN | DTS_UPDOWN | WS_TABSTOP | 0x8,69,42,65,15
+    PUSHBUTTON      "Hard",IDC_HARDREBOOT,21,196,50,14
+    GROUPBOX        "Reboot test",IDC_STATIC,7,180,138,41
+    PUSHBUTTON      "Soft",IDC_SOFTREBOOT,79,196,50,14
+END
+
+IDD_PREFPAGE_RESOLUTION DIALOGEX 0, 0, 184, 106
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Resolution"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    LTEXT           "Low-level timer:",IDC_STATIC,18,21,50,8
+    LTEXT           "Envelopes:",IDC_STATIC,18,43,36,8
+    EDITTEXT        IDC_TIMER_RES,73,19,40,14,ES_NUMBER
+    EDITTEXT        IDC_ENVELOPE_RES,73,42,40,14,ES_NUMBER
+    LTEXT           "Event loop:",IDC_STATIC,18,67,37,8
+    EDITTEXT        IDC_EVENT_RES,73,65,40,14,ES_NUMBER
+    LTEXT           "msecs",IDC_STATIC,118,21,21,8
+    LTEXT           "msecs",IDC_STATIC,118,44,21,8
+    LTEXT           "msecs",IDC_STATIC,118,67,21,8
+END
+
+IDD_PREFPAGE_UPDATES DIALOGEX 0, 0, 175, 107
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Updates"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    LTEXT           "Event loop:",IDC_STATIC,23,33,37,8
+    EDITTEXT        IDC_EVENTSTEP,77,31,40,14
+    LTEXT           "Clock refresh:",IDC_STATIC,23,53,44,8
+    EDITTEXT        IDC_CLOCKSTEP,77,51,40,14,ES_NUMBER
+    LTEXT           "Periodic updates for:",IDC_STATIC,13,12,66,8
+    LTEXT           "GUI refresh:",IDC_STATIC,23,73,39,8
+    EDITTEXT        IDC_GUISTEP,77,71,40,14,ES_NUMBER
+    LTEXT           "sec",IDC_STATIC,124,32,12,8
+    LTEXT           "sec",IDC_STATIC,124,53,12,8
+    LTEXT           "sec",IDC_STATIC,124,72,12,8
+END
+
+IDD_WATCHDOG_RUNDLG DIALOGEX 0, 0, 105, 31
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_CAPTION
+EXSTYLE WS_EX_TOPMOST | WS_EX_TOOLWINDOW | WS_EX_STATICEDGE
+CAPTION "Watchdog ON"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    CONTROL         "",IDC_WATCHDOGOCXCTRL1,
+                    "{8DA24FF8-B69F-4A45-8C5C-602368D7AE53}",WS_TABSTOP,7,7,91,17
+END
+
+IDD_LIST_STRINGS DIALOGEX 0, 0, 128, 212
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "String list"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,7,191,38,14
+    LISTBOX         IDC_SELECT_STRING,7,7,114,145,LBS_NOINTEGRALHEIGHT | LBS_EXTENDEDSEL | WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_SELECT_TYPE,7,166,114,116,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "Edit",IDC_EDIT,45,152,38,14
+    PUSHBUTTON      "Replace",IDC_REPLACE,83,152,38,14
+    PUSHBUTTON      "Add",IDC_ADD,7,152,38,14
+    PUSHBUTTON      "Cancel",IDCANCEL,83,191,38,14
+END
+
+IDD_STRING_SIMPLE DIALOGEX 0, 0, 116, 68
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Simple string"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,7,47,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,59,47,50,14
+    LTEXT           "String:",IDC_STATIC,7,7,22,8
+    EDITTEXT        IDC_STRING,7,20,102,14,ES_AUTOHSCROLL
+END
+
+IDD_STRING_CONCAT DIALOGEX 0, 0, 166, 150
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "String concatenation"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,29,128,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,86,128,50,14
+    LTEXT           "Name:",IDC_STATIC,7,7,22,8
+    EDITTEXT        IDC_NAME,7,16,152,14,ES_AUTOHSCROLL
+    LISTBOX         IDC_STRINGS,7,46,152,56,LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "Remove",IDC_REMOVE,45,102,38,14
+    PUSHBUTTON      "Add",IDC_ADD,7,102,38,14
+    LTEXT           "Strings:",IDC_STATIC,7,37,26,8
+    PUSHBUTTON      "Up",IDC_UP,83,102,38,14
+    PUSHBUTTON      "Down",IDC_DOWN,121,102,38,14
+END
+
+IDD_STRING_ALPHABET DIALOGEX 0, 0, 140, 190
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "String alphabet"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    EDITTEXT        IDC_NAME,7,16,126,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_ALPHABET,7,44,126,46,ES_MULTILINE | WS_VSCROLL
+    PUSHBUTTON      "<< Select value >>",IDC_SOURCE_VALUE,18,141,102,14
+    DEFPUSHBUTTON   "OK",IDOK,15,169,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,75,169,50,14
+    LTEXT           "Name:",IDC_STATIC,7,7,22,8
+    LTEXT           "Alphabet:",IDC_STATIC,7,35,32,8
+    LTEXT           "Enter a combination of comma-separated text and/or sequences of single letters or digits. E.g.: red,blue,green,d-y,3-8",IDC_STATIC,12,96,115,43
+END
+
+IDD_OBJECT_SETSTATE DIALOGEX 0, 0, 204, 147
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Set global state"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    EDITTEXT        IDC_NAME,49,7,148,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "<< Select state value >>",IDC_BTN_STATEVALUE,55,30,110,14
+    CONTROL         "Increment",IDC_INCREMENT,"Button",BS_AUTORADIOBUTTON | WS_GROUP,39,63,46,10
+    CONTROL         "Decrement",IDC_DECREMENT,"Button",BS_AUTORADIOBUTTON,39,80,46,10
+    CONTROL         "Set value",IDC_SETVALUE,"Button",BS_AUTORADIOBUTTON,39,97,46,10
+    PUSHBUTTON      "<< Select value >>",IDC_BTN_INPUTVALUE,87,95,96,14,WS_GROUP
+    DEFPUSHBUTTON   "OK",IDOK,55,126,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,110,126,50,14
+    LTEXT           "Name:",IDC_STATIC,25,8,22,8
+    LTEXT           "State value:",IDC_STATIC,7,33,40,8
+    GROUPBOX        "Select",IDC_STATIC,7,54,190,62
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO 
+BEGIN
+    IDD_PREFPAGE_AUDIO, DIALOG
+    BEGIN
+        RIGHTMARGIN, 149
+    END
+
+    IDD_PREFPAGE_FADETIMES, DIALOG
+    BEGIN
+        RIGHTMARGIN, 162
+        BOTTOMMARGIN, 100
+    END
+
+    IDD_STREAM_DEVICES, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 162
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 335
+    END
+
+    IDD_DEVICES_AUDIO, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 143
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 226
+    END
+
+    IDD_LIST_STREAMS, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 122
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 205
+    END
+
+    IDD_STREAM_BASIC, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 160
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 186
+    END
+
+    IDD_LIST_VALUES, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 121
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 206
+    END
+
+    IDD_VALUE_FLOAT, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 109
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 75
+    END
+
+    IDD_VALUE_CLOCK, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 256
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 98
+    END
+
+    IDD_VALUE_DATE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 232
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 80
+    END
+
+    IDD_VALUE_MAP, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 109
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 136
+    END
+
+    IDD_VALUE_CONDITIONAL, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 223
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 186
+    END
+
+    IDD_VALUE_RANDOM, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 109
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 99
+    END
+
+    IDD_LIST_CONDITIONALS, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 121
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 205
+    END
+
+    IDD_COND_BOOLEAN, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 109
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 92
+    END
+
+    IDD_COND_RELATION, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 251
+        TOPMARGIN, 6
+        BOTTOMMARGIN, 106
+    END
+
+    IDD_COND_RANGE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 190
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 130
+    END
+
+    IDD_COND_TIMEINT, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 256
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 72
+    END
+
+    IDD_COND_TIMERELATION, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 257
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 79
+    END
+
+    IDD_COND_MINUTES, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 260
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 74
+    END
+
+    IDD_COND_DATEINT, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 240
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 64
+    END
+
+    IDD_COND_OPERATION, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 133
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 143
+    END
+
+    IDD_COND_NOT, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 109
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 80
+    END
+
+    IDD_LIST_OBJECTS, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 121
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 205
+    END
+
+    IDD_OBJECT_AUDIOFILE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 161
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 91
+    END
+
+    IDD_OBJECT_MIDIFILE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 164
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 136
+    END
+
+    IDD_OBJECT_DSFILE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 164
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 55
+    END
+
+    IDD_OBJECT_SIMULTANEOUS, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 187
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 133
+    END
+
+    IDD_OBJECT_SEQUENTIAL, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 210
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 133
+    END
+
+    IDD_OBJECT_SILENCE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 150
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 87
+    END
+
+    IDD_OBJECT_RANDOM, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 255
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 159
+    END
+
+    IDD_OBJECT_CHAIN, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 210
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 202
+    END
+
+    IDD_OBJECT_CONDITIONAL, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 222
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 183
+    END
+
+    IDD_LIST_TASKS, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 121
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 195
+    END
+
+    IDD_TASK_EDITOR, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 249
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 307
+    END
+
+    IDD_LIST_MESSAGES, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 279
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 128
+    END
+
+    IDD_MESSAGE_LOAD, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 97
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 158
+    END
+
+    IDD_MESSAGE_SOLO, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 95
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 94
+    END
+
+    IDD_MESSAGE_START, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 95
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 69
+    END
+
+    IDD_MESSAGE_TRIGGERED, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 365
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 189
+    END
+
+    IDD_MESSAGE_CLOCK, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 429
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 190
+    END
+
+    IDD_OBJECT_MIDILIST, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 166
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 114
+    END
+
+    IDD_COND_PLAYING, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 133
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 149
+    END
+
+    IDD_MESSAGE_VOLUME, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 96
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 135
+    END
+
+    IDD_OBJECT_DISTRIBUTION, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 201
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 269
+    END
+
+    IDD_SETTINGS_STARTSTOP, DIALOG
+    BEGIN
+        LEFTMARGIN, 9
+        RIGHTMARGIN, 113
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 186
+    END
+
+    IDD_MESSAGE_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 311
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 42
+    END
+
+    IDD_LAYOUT_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 133
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 197
+    END
+
+    IDD_OBJECT_DMXSELECTFILE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 164
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 160
+    END
+
+    IDD_VALUE_INPUTRANGE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 109
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 93
+    END
+
+    IDD_OBJECT_LINEARSELECT, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 209
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 166
+    END
+
+    IDD_AUTOSTART_DLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 111
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 48
+    END
+
+    IDD_VALUE_OPERATION, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 133
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 143
+    END
+
+    IDD_DEVICES_MIDI, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 142
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 164
+    END
+
+    IDD_DEVICES_DMX, DIALOG
+    BEGIN
+        RIGHTMARGIN, 142
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 107
+    END
+
+    IDD_EDIT_COMBO, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 113
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 16
+    END
+
+    IDD_PREFPAGE_FILEPATH, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 231
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 104
+    END
+
+    IDD_LIST_INPUTS, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 121
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 207
+    END
+
+    IDD_INPUT_ICPANALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 109
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 159
+    END
+
+    IDD_INPUT_ICPDIGITAL, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 109
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 162
+    END
+
+    IDD_INPUT_PARALLEL, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 132
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 336
+    END
+
+    IDD_COND_DAYOFWEEK, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 109
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 157
+    END
+
+    IDD_INPUT_MIDIEVENT, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 109
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 250
+    END
+
+    IDD_MSGLIST_COND, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 264
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 191
+    END
+
+    IDD_EDIT_CONTROL, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 25
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 16
+    END
+
+    IDD_MSGLIST_CLOCK, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 264
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 269
+    END
+
+    IDD_EDIT_CLOCK, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 64
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 23
+    END
+
+    IDD_MSGLIST_TRIGGER, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 264
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 284
+    END
+
+    IDD_SETTINGS_RESET, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 145
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 247
+    END
+
+    IDD_PREFPAGE_RESOLUTION, DIALOG
+    BEGIN
+        RIGHTMARGIN, 176
+        BOTTOMMARGIN, 96
+    END
+
+    IDD_PREFPAGE_UPDATES, DIALOG
+    BEGIN
+        RIGHTMARGIN, 167
+        BOTTOMMARGIN, 97
+    END
+
+    IDD_WATCHDOG_RUNDLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 98
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 24
+    END
+
+    IDD_LIST_STRINGS, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 121
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 205
+    END
+
+    IDD_STRING_SIMPLE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 109
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 61
+    END
+
+    IDD_STRING_CONCAT, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 159
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 143
+    END
+
+    IDD_STRING_ALPHABET, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 133
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 183
+    END
+
+    IDD_OBJECT_SETSTATE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 197
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 140
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog Info
+//
+
+IDD_PREFPAGE_AUDIO DLGINIT
+BEGIN
+    IDC_FREQUENCY, 0x403, 11, 0
+0x3131, 0x302e, 0x3532, 0x6b20, 0x7a48, "\000" 
+    IDC_FREQUENCY, 0x403, 10, 0
+0x3232, 0x302e, 0x2035, 0x486b, 0x007a, 
+    IDC_FREQUENCY, 0x403, 9, 0
+0x3434, 0x312e, 0x6b20, 0x7a48, "\000" 
+    IDC_FREQUENCY, 0x403, 7, 0
+0x3834, 0x6b20, 0x7a48, "\000" 
+    IDC_FREQUENCY, 0x403, 7, 0
+0x3639, 0x6b20, 0x7a48, "\000" 
+    0
+END
+
+IDD_LIST_STREAMS DLGINIT
+BEGIN
+    IDC_SELECT_TYPE, 0x403, 12, 0
+0x6954, 0x656d, 0x7320, 0x7274, 0x6165, 0x006d, 
+    IDC_SELECT_TYPE, 0x403, 13, 0
+0x7645, 0x6e65, 0x2074, 0x7473, 0x6572, 0x6d61, "\000" 
+    IDC_SELECT_TYPE, 0x403, 13, 0
+0x7541, 0x6964, 0x206f, 0x7473, 0x6572, 0x6d61, "\000" 
+    0
+END
+
+IDD_LIST_VALUES DLGINIT
+BEGIN
+    IDC_SELECT_TYPE, 0x403, 14, 0
+0x6953, 0x676e, 0x656c, 0x6e20, 0x6d75, 0x6562, 0x0072, 
+    IDC_SELECT_TYPE, 0x403, 12, 0
+0x6e49, 0x7570, 0x2074, 0x6152, 0x676e, 0x0065, 
+    IDC_SELECT_TYPE, 0x403, 9, 0
+0x6954, 0x656d, 0x6d20, 0x7061, "\000" 
+    IDC_SELECT_TYPE, 0x403, 9, 0
+0x6144, 0x6574, 0x6d20, 0x7061, "\000" 
+    IDC_SELECT_TYPE, 0x403, 11, 0
+0x694c, 0x656e, 0x7261, 0x6d20, 0x7061, "\000" 
+    IDC_SELECT_TYPE, 0x403, 14, 0
+0x7553, 0x206d, 0x666f, 0x7620, 0x6c61, 0x6575, 0x0073, 
+    IDC_SELECT_TYPE, 0x403, 18, 0
+0x7250, 0x646f, 0x6375, 0x2074, 0x666f, 0x7620, 0x6c61, 0x6575, 0x0073, 
+
+    IDC_SELECT_TYPE, 0x403, 18, 0
+0x6f43, 0x646e, 0x7469, 0x6f69, 0x616e, 0x206c, 0x6176, 0x756c, 0x0065, 
+
+    IDC_SELECT_TYPE, 0x403, 13, 0
+0x6152, 0x646e, 0x6d6f, 0x7620, 0x6c61, 0x6575, "\000" 
+    IDC_SELECT_TYPE, 0x403, 16, 0
+0x6553, 0x6f63, 0x646e, 0x2073, 0x6c65, 0x7061, 0x6573, 0x0064, 
+    0
+END
+
+IDD_LIST_CONDITIONALS DLGINIT
+BEGIN
+    IDC_SELECT_TYPE, 0x403, 15, 0
+0x6953, 0x706d, 0x656c, 0x4220, 0x6f6f, 0x656c, 0x6e61, "\000" 
+    IDC_SELECT_TYPE, 0x403, 15, 0
+0x6156, 0x756c, 0x2065, 0x6572, 0x616c, 0x6974, 0x6e6f, "\000" 
+    IDC_SELECT_TYPE, 0x403, 15, 0
+0x6156, 0x756c, 0x2065, 0x6e69, 0x7220, 0x6e61, 0x6567, "\000" 
+    IDC_SELECT_TYPE, 0x403, 21, 0
+0x6e49, 0x6973, 0x6564, 0x7420, 0x6d69, 0x2065, 0x6e69, 0x6574, 0x7672, 
+0x6c61, "\000" 
+    IDC_SELECT_TYPE, 0x403, 14, 0
+0x6954, 0x656d, 0x7220, 0x6c65, 0x7461, 0x6f69, 0x006e, 
+    IDC_SELECT_TYPE, 0x403, 16, 0
+0x694d, 0x756e, 0x6574, 0x7220, 0x6c65, 0x7461, 0x6f69, 0x006e, 
+    IDC_SELECT_TYPE, 0x403, 21, 0
+0x6e49, 0x6973, 0x6564, 0x6420, 0x7461, 0x2065, 0x6e69, 0x6574, 0x7672, 
+0x6c61, "\000" 
+    IDC_SELECT_TYPE, 0x403, 16, 0
+0x6c50, 0x7961, 0x6e69, 0x2067, 0x626f, 0x656a, 0x7463, 0x0073, 
+    IDC_SELECT_TYPE, 0x403, 4, 0
+0x6e41, 0x0064, 
+    IDC_SELECT_TYPE, 0x403, 3, 0
+0x724f, "\000" 
+    IDC_SELECT_TYPE, 0x403, 4, 0
+0x6f4e, 0x0074, 
+    IDC_SELECT_TYPE, 0x403, 12, 0
+0x6144, 0x2079, 0x664f, 0x5720, 0x6565, 0x006b, 
+    0
+END
+
+IDD_TASK_EDITOR DLGINIT
+BEGIN
+    IDC_PRIORITY, 0x403, 11, 0
+0x6143, 0x636e, 0x6c65, 0x6e20, 0x776f, "\000" 
+    IDC_PRIORITY, 0x403, 17, 0
+0x6157, 0x7469, 0x7520, 0x746e, 0x6c69, 0x7220, 0x6165, 0x7964, "\000" 
+    IDC_PRIORITY, 0x403, 21, 0
+0x6f4c, 0x6461, 0x6e20, 0x776f, 0x6920, 0x2066, 0x6f70, 0x7373, 0x6269, 
+0x656c, "\000" 
+    IDC_PRIORITY, 0x403, 12, 0
+0x6f4c, 0x6461, 0x6120, 0x776c, 0x7961, 0x0073, 
+    IDC_SELECT_MSG, 0x403, 15, 0
+0x6f4c, 0x6461, 0x7020, 0x616c, 0x2079, 0x6174, 0x6b73, "\000" 
+    IDC_SELECT_MSG, 0x403, 23, 0
+0x6f53, 0x6f6c, 0x6f20, 0x6a62, 0x6365, 0x2074, 0x6920, 0x206e, 0x7473, 
+0x6572, 0x6d61, "\000" 
+    IDC_SELECT_MSG, 0x403, 12, 0
+0x754d, 0x6574, 0x7320, 0x7274, 0x6165, 0x006d, 
+    IDC_SELECT_MSG, 0x403, 15, 0
+0x6e45, 0x2064, 0x6f73, 0x6f6c, 0x6520, 0x6576, 0x746e, "\000" 
+    IDC_SELECT_MSG, 0x403, 16, 0
+0x6e45, 0x2064, 0x756d, 0x6574, 0x7320, 0x7274, 0x6165, 0x006d, 
+    IDC_SELECT_MSG, 0x403, 13, 0
+0x7453, 0x7261, 0x2074, 0x7473, 0x6572, 0x6d61, "\000" 
+    IDC_SELECT_MSG, 0x403, 12, 0
+0x7453, 0x706f, 0x7320, 0x7274, 0x6165, 0x006d, 
+    IDC_SELECT_MSG, 0x403, 18, 0
+0x6553, 0x2074, 0x7473, 0x6572, 0x6d61, 0x7620, 0x6c6f, 0x6d75, 0x0065, 
+
+    IDC_SELECT_MSG, 0x403, 21, 0
+0x6441, 0x756a, 0x7473, 0x7320, 0x7274, 0x6165, 0x206d, 0x6f76, 0x756c, 
+0x656d, "\000" 
+    0
+END
+
+IDD_MESSAGE_TRIGGERED DLGINIT
+BEGIN
+    IDC_MESSAGE, 0x403, 15, 0
+0x6f4c, 0x6461, 0x7020, 0x616c, 0x2079, 0x6174, 0x6b73, "\000" 
+    IDC_MESSAGE, 0x403, 20, 0
+0x6f53, 0x6f6c, 0x7420, 0x7361, 0x206b, 0x6e69, 0x7320, 0x7274, 0x6165, 
+0x006d, 
+    IDC_MESSAGE, 0x403, 12, 0
+0x754d, 0x6574, 0x7320, 0x7274, 0x6165, 0x006d, 
+    IDC_MESSAGE, 0x403, 14, 0
+0x6e45, 0x2064, 0x6f73, 0x6f6c, 0x7420, 0x7361, 0x006b, 
+    IDC_MESSAGE, 0x403, 16, 0
+0x6e45, 0x2064, 0x756d, 0x6574, 0x7320, 0x7274, 0x6165, 0x006d, 
+    IDC_MESSAGE, 0x403, 13, 0
+0x7453, 0x7261, 0x2074, 0x7473, 0x6572, 0x6d61, "\000" 
+    IDC_MESSAGE, 0x403, 12, 0
+0x7453, 0x706f, 0x7320, 0x7274, 0x6165, 0x006d, 
+    IDC_MESSAGE, 0x403, 18, 0
+0x6553, 0x2074, 0x7473, 0x6572, 0x6d61, 0x7620, 0x6c6f, 0x6d75, 0x0065, 
+
+    IDC_MESSAGE, 0x403, 21, 0
+0x6441, 0x756a, 0x7473, 0x7320, 0x7274, 0x6165, 0x206d, 0x6f76, 0x756c, 
+0x656d, "\000" 
+    0
+END
+
+IDD_MESSAGE_CLOCK DLGINIT
+BEGIN
+    IDC_MESSAGE, 0x403, 15, 0
+0x6f4c, 0x6461, 0x7020, 0x616c, 0x2079, 0x6174, 0x6b73, "\000" 
+    IDC_MESSAGE, 0x403, 20, 0
+0x6f53, 0x6f6c, 0x7420, 0x7361, 0x206b, 0x6e69, 0x7320, 0x7274, 0x6165, 
+0x006d, 
+    IDC_MESSAGE, 0x403, 12, 0
+0x754d, 0x6574, 0x7320, 0x7274, 0x6165, 0x006d, 
+    IDC_MESSAGE, 0x403, 14, 0
+0x6e45, 0x2064, 0x6f73, 0x6f6c, 0x7420, 0x7361, 0x006b, 
+    IDC_MESSAGE, 0x403, 16, 0
+0x6e45, 0x2064, 0x756d, 0x6574, 0x7320, 0x7274, 0x6165, 0x006d, 
+    IDC_MESSAGE, 0x403, 13, 0
+0x7453, 0x7261, 0x2074, 0x7473, 0x6572, 0x6d61, "\000" 
+    IDC_MESSAGE, 0x403, 12, 0
+0x7453, 0x706f, 0x7320, 0x7274, 0x6165, 0x006d, 
+    IDC_MESSAGE, 0x403, 18, 0
+0x6553, 0x2074, 0x7473, 0x6572, 0x6d61, 0x7620, 0x6c6f, 0x6d75, 0x0065, 
+
+    IDC_MESSAGE, 0x403, 21, 0
+0x6441, 0x756a, 0x7473, 0x7320, 0x7274, 0x6165, 0x206d, 0x6f76, 0x756c, 
+0x656d, "\000" 
+    0
+END
+
+IDD_MESSAGE_DIALOG DLGINIT
+BEGIN
+    IDC_MESSAGE, 0x403, 15, 0
+0x6f4c, 0x6461, 0x7020, 0x616c, 0x2079, 0x6174, 0x6b73, "\000" 
+    IDC_MESSAGE, 0x403, 20, 0
+0x6f53, 0x6f6c, 0x7420, 0x7361, 0x206b, 0x6e69, 0x7320, 0x7274, 0x6165, 
+0x006d, 
+    IDC_MESSAGE, 0x403, 12, 0
+0x754d, 0x6574, 0x7320, 0x7274, 0x6165, 0x006d, 
+    IDC_MESSAGE, 0x403, 14, 0
+0x6e45, 0x2064, 0x6f73, 0x6f6c, 0x7420, 0x7361, 0x006b, 
+    IDC_MESSAGE, 0x403, 16, 0
+0x6e45, 0x2064, 0x756d, 0x6574, 0x7320, 0x7274, 0x6165, 0x006d, 
+    IDC_MESSAGE, 0x403, 13, 0
+0x7453, 0x7261, 0x2074, 0x7473, 0x6572, 0x6d61, "\000" 
+    IDC_MESSAGE, 0x403, 12, 0
+0x7453, 0x706f, 0x7320, 0x7274, 0x6165, 0x006d, 
+    IDC_MESSAGE, 0x403, 18, 0
+0x6553, 0x2074, 0x7473, 0x6572, 0x6d61, 0x7620, 0x6c6f, 0x6d75, 0x0065, 
+
+    IDC_MESSAGE, 0x403, 21, 0
+0x6441, 0x756a, 0x7473, 0x7320, 0x7274, 0x6165, 0x206d, 0x6f76, 0x756c, 
+0x656d, "\000" 
+    0
+END
+
+IDD_LIST_OBJECTS DLGINIT
+BEGIN
+    IDC_SELECT_TYPE, 0x403, 11, 0
+0x7541, 0x6964, 0x206f, 0x6966, 0x656c, "\000" 
+    IDC_SELECT_TYPE, 0x403, 10, 0
+0x694d, 0x6964, 0x6620, 0x6c69, 0x0065, 
+    IDC_SELECT_TYPE, 0x403, 25, 0
+0x6944, 0x6572, 0x7463, 0x6f53, 0x6e75, 0x2064, 0x6f63, 0x746e, 0x6f72, 
+0x206c, 0x6966, 0x656c, "\000" 
+    IDC_SELECT_TYPE, 0x403, 16, 0
+0x4d44, 0x2058, 0x6573, 0x656c, 0x7463, 0x6620, 0x6c69, 0x0065, 
+    IDC_SELECT_TYPE, 0x403, 21, 0
+0x694d, 0x6964, 0x6520, 0x6576, 0x746e, 0x6c20, 0x7369, 0x2074, 0x6966, 
+0x656c, "\000" 
+    IDC_SELECT_TYPE, 0x403, 8, 0
+0x6953, 0x656c, 0x636e, 0x0065, 
+    IDC_SELECT_TYPE, 0x403, 27, 0
+0x6953, 0x756d, 0x746c, 0x6e61, 0x6f65, 0x7375, 0x7320, 0x756f, 0x646e, 
+0x6f20, 0x6a62, 0x6365, 0x7374, "\000" 
+    IDC_SELECT_TYPE, 0x403, 25, 0
+0x6553, 0x7571, 0x6e65, 0x6974, 0x6c61, 0x7320, 0x756f, 0x646e, 0x6f20, 
+0x6a62, 0x6365, 0x7374, "\000" 
+    IDC_SELECT_TYPE, 0x403, 21, 0
+0x694c, 0x656e, 0x7261, 0x7320, 0x6c65, 0x6365, 0x2074, 0x626f, 0x656a, 
+0x7463, "\000" 
+    IDC_SELECT_TYPE, 0x403, 20, 0
+0x6152, 0x646e, 0x6d6f, 0x7320, 0x756f, 0x646e, 0x6f20, 0x6a62, 0x6365, 
+0x0074, 
+    IDC_SELECT_TYPE, 0x403, 22, 0
+0x6843, 0x6961, 0x656e, 0x2064, 0x6f73, 0x6e75, 0x2064, 0x626f, 0x656a, 
+0x7463, 0x0073, 
+    IDC_SELECT_TYPE, 0x403, 25, 0
+0x6f43, 0x646e, 0x7469, 0x6f69, 0x616e, 0x206c, 0x6f73, 0x6e75, 0x2064, 
+0x626f, 0x656a, 0x7463, "\000" 
+    IDC_SELECT_TYPE, 0x403, 25, 0
+0x6954, 0x656d, 0x6420, 0x7369, 0x7274, 0x6269, 0x7475, 0x6f69, 0x206e, 
+0x626f, 0x656a, 0x7463, "\000" 
+    IDC_SELECT_TYPE, 0x403, 13, 0
+0x6c47, 0x626f, 0x6c61, 0x7320, 0x6174, 0x6574, "\000" 
+    0
+END
+
+IDD_LIST_MESSAGES DLGINIT
+BEGIN
+    IDC_SELECT_MSG, 0x403, 15, 0
+0x6f4c, 0x6461, 0x7020, 0x616c, 0x2079, 0x6174, 0x6b73, "\000" 
+    IDC_SELECT_MSG, 0x403, 20, 0
+0x6f53, 0x6f6c, 0x7420, 0x7361, 0x206b, 0x6e69, 0x7320, 0x7274, 0x6165, 
+0x006d, 
+    IDC_SELECT_MSG, 0x403, 12, 0
+0x754d, 0x6574, 0x7320, 0x7274, 0x6165, 0x006d, 
+    IDC_SELECT_MSG, 0x403, 14, 0
+0x6e45, 0x2064, 0x6f73, 0x6f6c, 0x7420, 0x7361, 0x006b, 
+    IDC_SELECT_MSG, 0x403, 16, 0
+0x6e45, 0x2064, 0x756d, 0x6574, 0x7320, 0x7274, 0x6165, 0x006d, 
+    IDC_SELECT_MSG, 0x403, 13, 0
+0x7453, 0x7261, 0x2074, 0x7473, 0x6572, 0x6d61, "\000" 
+    IDC_SELECT_MSG, 0x403, 12, 0
+0x7453, 0x706f, 0x7320, 0x7274, 0x6165, 0x006d, 
+    IDC_SELECT_MSG, 0x403, 18, 0
+0x6553, 0x2074, 0x7473, 0x6572, 0x6d61, 0x7620, 0x6c6f, 0x6d75, 0x0065, 
+
+    IDC_SELECT_MSG, 0x403, 21, 0
+0x6441, 0x756a, 0x7473, 0x7320, 0x7274, 0x6165, 0x206d, 0x6f76, 0x756c, 
+0x656d, "\000" 
+    0
+END
+
+IDD_LIST_INPUTS DLGINIT
+BEGIN
+    IDC_SELECT_TYPE, 0x403, 14, 0
+0x4349, 0x4350, 0x4e4f, 0x6120, 0x616e, 0x6f6c, 0x0067, 
+    IDC_SELECT_TYPE, 0x403, 15, 0
+0x4349, 0x4350, 0x4e4f, 0x6420, 0x6769, 0x7469, 0x6c61, "\000" 
+    IDC_SELECT_TYPE, 0x403, 14, 0
+0x6150, 0x6172, 0x6c6c, 0x6c65, 0x7020, 0x726f, 0x0074, 
+    IDC_SELECT_TYPE, 0x403, 11, 0
+0x494d, 0x4944, 0x6520, 0x6576, 0x746e, "\000" 
+    0
+END
+
+IDD_INPUT_MIDIEVENT DLGINIT
+BEGIN
+    IDC_COMBO1, 0x403, 4, 0
+0x6e41, 0x0079, 
+    IDC_COMBO1, 0x403, 8, 0
+0x6f43, 0x746e, 0x6f72, 0x006c, 
+    IDC_COMBO1, 0x403, 7, 0
+0x6f4e, 0x6574, 0x6e6f, "\000" 
+    0
+END
+
+IDD_MSGLIST_COND DLGINIT
+BEGIN
+    IDC_SELECT_MSG, 0x403, 15, 0
+0x6f4c, 0x6461, 0x7020, 0x616c, 0x2079, 0x6174, 0x6b73, "\000" 
+    IDC_SELECT_MSG, 0x403, 23, 0
+0x6f53, 0x6f6c, 0x6f20, 0x6a62, 0x6365, 0x2074, 0x6920, 0x206e, 0x7473, 
+0x6572, 0x6d61, "\000" 
+    IDC_SELECT_MSG, 0x403, 12, 0
+0x754d, 0x6574, 0x7320, 0x7274, 0x6165, 0x006d, 
+    IDC_SELECT_MSG, 0x403, 15, 0
+0x6e45, 0x2064, 0x6f73, 0x6f6c, 0x6520, 0x6576, 0x746e, "\000" 
+    IDC_SELECT_MSG, 0x403, 16, 0
+0x6e45, 0x2064, 0x756d, 0x6574, 0x7320, 0x7274, 0x6165, 0x006d, 
+    IDC_SELECT_MSG, 0x403, 13, 0
+0x7453, 0x7261, 0x2074, 0x7473, 0x6572, 0x6d61, "\000" 
+    IDC_SELECT_MSG, 0x403, 12, 0
+0x7453, 0x706f, 0x7320, 0x7274, 0x6165, 0x006d, 
+    IDC_SELECT_MSG, 0x403, 18, 0
+0x6553, 0x2074, 0x7473, 0x6572, 0x6d61, 0x7620, 0x6c6f, 0x6d75, 0x0065, 
+
+    IDC_SELECT_MSG, 0x403, 21, 0
+0x6441, 0x756a, 0x7473, 0x7320, 0x7274, 0x6165, 0x206d, 0x6f76, 0x756c, 
+0x656d, "\000" 
+    0
+END
+
+IDD_MSGLIST_CLOCK DLGINIT
+BEGIN
+    IDC_SELECT_MSG, 0x403, 15, 0
+0x6f4c, 0x6461, 0x7020, 0x616c, 0x2079, 0x6174, 0x6b73, "\000" 
+    IDC_SELECT_MSG, 0x403, 23, 0
+0x6f53, 0x6f6c, 0x6f20, 0x6a62, 0x6365, 0x2074, 0x6920, 0x206e, 0x7473, 
+0x6572, 0x6d61, "\000" 
+    IDC_SELECT_MSG, 0x403, 12, 0
+0x754d, 0x6574, 0x7320, 0x7274, 0x6165, 0x006d, 
+    IDC_SELECT_MSG, 0x403, 15, 0
+0x6e45, 0x2064, 0x6f73, 0x6f6c, 0x6520, 0x6576, 0x746e, "\000" 
+    IDC_SELECT_MSG, 0x403, 16, 0
+0x6e45, 0x2064, 0x756d, 0x6574, 0x7320, 0x7274, 0x6165, 0x006d, 
+    IDC_SELECT_MSG, 0x403, 13, 0
+0x7453, 0x7261, 0x2074, 0x7473, 0x6572, 0x6d61, "\000" 
+    IDC_SELECT_MSG, 0x403, 12, 0
+0x7453, 0x706f, 0x7320, 0x7274, 0x6165, 0x006d, 
+    IDC_SELECT_MSG, 0x403, 18, 0
+0x6553, 0x2074, 0x7473, 0x6572, 0x6d61, 0x7620, 0x6c6f, 0x6d75, 0x0065, 
+
+    IDC_SELECT_MSG, 0x403, 21, 0
+0x6441, 0x756a, 0x7473, 0x7320, 0x7274, 0x6165, 0x206d, 0x6f76, 0x756c, 
+0x656d, "\000" 
+    0
+END
+
+IDD_MSGLIST_TRIGGER DLGINIT
+BEGIN
+    IDC_SELECT_MSG, 0x403, 15, 0
+0x6f4c, 0x6461, 0x7020, 0x616c, 0x2079, 0x6174, 0x6b73, "\000" 
+    IDC_SELECT_MSG, 0x403, 23, 0
+0x6f53, 0x6f6c, 0x6f20, 0x6a62, 0x6365, 0x2074, 0x6920, 0x206e, 0x7473, 
+0x6572, 0x6d61, "\000" 
+    IDC_SELECT_MSG, 0x403, 12, 0
+0x754d, 0x6574, 0x7320, 0x7274, 0x6165, 0x006d, 
+    IDC_SELECT_MSG, 0x403, 15, 0
+0x6e45, 0x2064, 0x6f73, 0x6f6c, 0x6520, 0x6576, 0x746e, "\000" 
+    IDC_SELECT_MSG, 0x403, 16, 0
+0x6e45, 0x2064, 0x756d, 0x6574, 0x7320, 0x7274, 0x6165, 0x006d, 
+    IDC_SELECT_MSG, 0x403, 13, 0
+0x7453, 0x7261, 0x2074, 0x7473, 0x6572, 0x6d61, "\000" 
+    IDC_SELECT_MSG, 0x403, 12, 0
+0x7453, 0x706f, 0x7320, 0x7274, 0x6165, 0x006d, 
+    IDC_SELECT_MSG, 0x403, 18, 0
+0x6553, 0x2074, 0x7473, 0x6572, 0x6d61, 0x7620, 0x6c6f, 0x6d75, 0x0065, 
+
+    IDC_SELECT_MSG, 0x403, 21, 0
+0x6441, 0x756a, 0x7473, 0x7320, 0x7274, 0x6165, 0x206d, 0x6f76, 0x756c, 
+0x656d, "\000" 
+    0
+END
+
+IDD_SETTINGS_STARTSTOP DLGINIT
+BEGIN
+    IDC_EMPTYACTION, 0x403, 13, 0
+0x654b, 0x7065, 0x7220, 0x6e75, 0x696e, 0x676e, "\000" 
+    IDC_EMPTYACTION, 0x403, 5, 0
+0x7453, 0x706f, "\000" 
+    IDC_EMPTYACTION, 0x403, 14, 0
+0x7453, 0x706f, 0x6120, 0x646e, 0x6520, 0x6978, 0x0074, 
+    IDC_STARTACTION, 0x403, 11, 0
+0x6f44, 0x6e20, 0x746f, 0x6968, 0x676e, "\000" 
+    IDC_STARTACTION, 0x403, 11, 0
+0x6e49, 0x7469, 0x6169, 0x696c, 0x657a, "\000" 
+    IDC_STARTACTION, 0x403, 5, 0
+0x6c50, 0x7961, "\000" 
+    0
+END
+
+IDD_SETTINGS_RESET DLGINIT
+BEGIN
+    IDC_WATCHDOG_TYPE, 0x403, 20, 0
+0x2642, 0x2042, 0x6c65, 0x6365, 0x7274, 0x6e6f, 0x6369, 0x2073, 0x5349, 
+0x0041, 
+    IDC_WATCHDOG_TYPE, 0x403, 20, 0
+0x2642, 0x2042, 0x6c65, 0x6365, 0x7274, 0x6e6f, 0x6369, 0x2073, 0x4350, 
+0x0049, 
+    IDC_WATCHDOG_TYPE, 0x403, 13, 0
+0x6544, 0x6963, 0x6973, 0x6e6f, 0x5020, 0x4943, "\000" 
+    IDC_WATCHDOG_TYPE, 0x403, 17, 0
+0x4249, 0x3837, 0x2030, 0x6e69, 0x6574, 0x7267, 0x7461, 0x6465, "\000" 
+    IDC_RESET_TIMEUNIT, 0x403, 6, 0
+0x6f48, 0x7275, 0x0073, 
+    IDC_RESET_TIMEUNIT, 0x403, 5, 0
+0x6144, 0x7379, "\000" 
+    0
+END
+
+IDD_WATCHDOG_RUNDLG DLGINIT
+BEGIN
+    IDC_WATCHDOGOCXCTRL1, 0x376, 20, 0
+0x0000, 0x0000, 0x0000, 0x0001, 0x0e29, 0x0000, 0x02e5, 0x0000, 0x0000, 
+0x0000, 
+    0
+END
+
+IDD_LIST_STRINGS DLGINIT
+BEGIN
+    IDC_SELECT_TYPE, 0x403, 14, 0
+0x6953, 0x706d, 0x656c, 0x7320, 0x7274, 0x6e69, 0x0067, 
+    IDC_SELECT_TYPE, 0x403, 16, 0
+0x694c, 0x656e, 0x7261, 0x6120, 0x706c, 0x6168, 0x6562, 0x0074, 
+    IDC_SELECT_TYPE, 0x403, 14, 0
+0x6f43, 0x636e, 0x7461, 0x6e65, 0x7461, 0x6f69, 0x006e, 
+    0
+END
+
+IDD_INPUT_ICPANALOG DLGINIT
+BEGIN
+    IDC_SELECTPORT, 0x403, 5, 0
+0x4f43, 0x314d, "\000" 
+    IDC_SELECTPORT, 0x403, 5, 0
+0x4f43, 0x324d, "\000" 
+    IDC_SELECTPORT, 0x403, 5, 0
+0x4f43, 0x334d, "\000" 
+    IDC_SELECTPORT, 0x403, 5, 0
+0x4f43, 0x344d, "\000" 
+    IDC_SELECTPORT, 0x403, 5, 0
+0x4f43, 0x354d, "\000" 
+    0
+END
+
+IDD_INPUT_ICPDIGITAL DLGINIT
+BEGIN
+    IDC_SELECTPORT, 0x403, 5, 0
+0x4f43, 0x314d, "\000" 
+    IDC_SELECTPORT, 0x403, 5, 0
+0x4f43, 0x324d, "\000" 
+    IDC_SELECTPORT, 0x403, 5, 0
+0x4f43, 0x334d, "\000" 
+    IDC_SELECTPORT, 0x403, 5, 0
+0x4f43, 0x344d, "\000" 
+    IDC_SELECTPORT, 0x403, 5, 0
+0x4f43, 0x354d, "\000" 
+    0
+END
+
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)\r\n"
+    "#ifdef _WIN32\r\n"
+    "LANGUAGE 9, 1\r\n"
+    "#pragma code_page(1252)\r\n"
+    "#endif\r\n"
+    "#include ""res\\SoundSpace.rc2""  // non-Microsoft Visual C++ edited resources\r\n"
+    "#include ""afxres.rc""         // Standard components\r\n"
+    "#endif\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+#endif    // Norwegian (Bokmal) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE 9, 1
+#pragma code_page(1252)
+#endif
+#include "res\SoundSpace.rc2"  // non-Microsoft Visual C++ edited resources
+#include "afxres.rc"         // Standard components
+#endif
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

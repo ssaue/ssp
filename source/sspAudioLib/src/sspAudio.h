@@ -1,0 +1,35 @@
+// sspAudio.h: interface for the sspAudioFile class.
+//
+////////////////////////////////////////////////////////
+
+#ifndef SSP_AUDIO_H
+#define SSP_AUDIO_H
+
+#include <sndfile.h>
+
+typedef SF_INFO sspAudioInfo;
+
+/**
+ * Enumerated error codes.
+ * The first part is directly inherited from libsndfile.
+ *
+ */
+
+enum {	
+  SSP_AUDIO_ERR_NO_ERROR = SF_ERR_NO_ERROR,
+	SSP_AUDIO_ERR_UNRECOGNISED_FORMAT = SF_ERR_UNRECOGNISED_FORMAT,
+	SSP_AUDIO_ERR_SYSTEM = SF_ERR_SYSTEM,
+	SSP_AUDIO_ERR_MALFORMED_FILE = SF_ERR_MALFORMED_FILE,
+	SSP_AUDIO_ERR_UNSUPPORTED_ENCODING	= SF_ERR_UNSUPPORTED_ENCODING,
+
+  SSP_AUDIO_ERR_MAX_SNDFILE_ERROR = SF_ERR_UNSUPPORTED_ENCODING,
+
+  SSP_AUDIO_ERR_INVALID_PLAYINFO,
+  SSP_AUDIO_ERR_UNSUPPORTED_PLAYFORMAT,
+  SSP_AUDIO_ERR_INCOMPATIBLE_FORMATS,
+  SSP_AUDIO_ERR_UNKNOWN_FILE_ERROR,
+
+	SSP_AUDIO_ERR_MAX_ERROR
+};
+
+#endif
