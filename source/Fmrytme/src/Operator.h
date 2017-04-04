@@ -7,6 +7,9 @@
 
 #include "time.h"
 
+#include <vector>
+#include <utility>
+
 #if _MSC_VER >= 1000
 #pragma once
 #endif // _MSC_VER >= 1000
@@ -15,17 +18,23 @@ class COperator : public CObject
 {
 protected:
 	int m_nType;
+	int m_nMetronom;
 
 public:
 	enum {INGEN, FMOSCILLATOR, SUMOPERATOR, FMNOTE, SERIEOSC, PARALLELLOSC};
 
-	COperator(int type) {m_nType = type;}
-	COperator(const COperator& op) {m_nType = op.m_nType;}
+	COperator(int type) { m_nType = type; m_nMetronom = 120; }
+	COperator(const COperator& op) { m_nType = op.m_nType; m_nMetronom = op.m_nMetronom; }
 	virtual double GetValue(long tid) const = 0;
 	virtual void UpdatePeriode(double dPeriode) = 0;
-	int GetType(void) const {return m_nType;}
+
 	void SetType(int type) {m_nType = type;}
+	void SetMetronom(int metronom) { m_nMetronom = metronom; }
+
+	int GetType(void) const { return m_nType; }
+	int GetMetronom() const { return m_nMetronom; }
 };
+
 
 class CFMOscillator : public COperator
 {
@@ -63,9 +72,17 @@ public:
 	void UpdatePeriode(double dPeriode);
 
 private:
+	typedef std::vector<std::pair<double, double>> ampvec;
+	ampvec m_amps;
+	double m_metro_a;
+	double m_metro_b;
+
 	double trekant(double tid) const;
 	double sagtann(double tid) const;
 	double firkant(double tid) const;
+
+	double GetMetroFak() const;
+	double GetAmplitude(long tid) const;
 };
 
 class CFMNote : public CFMOscillator

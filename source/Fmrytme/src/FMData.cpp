@@ -480,6 +480,12 @@ void CFMSang::SetGrunnpuls(int nGrunnpuls)
 		GetSekvens(i)->SetGrunnpuls(m_pInfo, nGrunnpuls);
 }
 
+void CFMSang::SetMetronom(int metronom)
+{
+	for (int i = 0; i < m_nSpor; i++)
+		GetSekvens(i)->GetModulator()->SetMetronom(metronom);
+}
+
 void CFMSang::LikeModulatorer(int nSekvNr)
 {
 	int nGrunnpuls = GetSekvens(nSekvNr)->GetGrunnpuls();

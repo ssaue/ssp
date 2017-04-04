@@ -72,6 +72,7 @@ protected:
 	afx_msg void OnUpdateSolo(CCmdUI* pCmdUI);
 	afx_msg void OnUpdateParameter(CCmdUI* pCmdUI);
 	afx_msg void OnUpdateOppsett(CCmdUI* pCmdUI);
+	afx_msg void OnUpdateTempo(CCmdUI* pCmdUI);
 	afx_msg void OnFjernStemme();
 	afx_msg void OnUpdateFjernStemme(CCmdUI* pCmdUI);
 	afx_msg void OnImportTekst();
@@ -82,6 +83,7 @@ protected:
 	//}}AFX_MSG
 	afx_msg void OnSetStemme();
 	afx_msg void OnSetTempo();
+	afx_msg void OnEditedTempo();
 	DECLARE_MESSAGE_MAP()
 };
 

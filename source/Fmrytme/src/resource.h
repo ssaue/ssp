@@ -1,5 +1,5 @@
 //{{NO_DEPENDENCIES}}
-// Microsoft Developer Studio generated include file.
+// Microsoft Visual C++ generated include file.
 // Used by fmrytme.rc
 //
 #define IDD_ABOUTBOX                    100
@@ -22,6 +22,7 @@
 #define IDD_NYSTEMME                    148
 #define IDD_STEMME1                     149
 #define IDD_PLOTINFO                    150
+#define IDD_MODULATION                  152
 #define IDC_OPPSETT                     1005
 #define IDC_TEMPO                       1006
 #define IDC_STEMME                      1007
@@ -88,6 +89,11 @@
 #define IDC_AMP_VELOCITY                1071
 #define IDC_AMP_LENGDE                  1072
 #define IDC_OPPDATER_PULS               1073
+#define IDC_LABEL1                      1074
+#define IDC_CHECK1                      1075
+#define IDC_EDIT1                       1076
+#define IDC_EDIT2                       1077
+#define IDC_LIST1                       1078
 #define IDC_LYDKLASSE1                  1201
 #define IDC_LYDKLASSE2                  1202
 #define IDC_LYDKLASSE3                  1203
@@ -340,9 +346,9 @@
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_3D_CONTROLS                     1
-#define _APS_NEXT_RESOURCE_VALUE        152
+#define _APS_NEXT_RESOURCE_VALUE        155
 #define _APS_NEXT_COMMAND_VALUE         32801
-#define _APS_NEXT_CONTROL_VALUE         1074
+#define _APS_NEXT_CONTROL_VALUE         1079
 #define _APS_NEXT_SYMED_VALUE           103
 #endif
 #endif

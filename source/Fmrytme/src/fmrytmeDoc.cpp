@@ -35,10 +35,12 @@ BEGIN_MESSAGE_MAP(CFmrytmeDoc, CDocument)
 	ON_UPDATE_COMMAND_UI(ID_KURVE, OnUpdateKurve)
 	ON_UPDATE_COMMAND_UI(ID_GENERELLMENY, OnUpdateGenerellmeny)
 	ON_UPDATE_COMMAND_UI(ID_PARAKNAPP, OnUpdateParameter)
+	ON_UPDATE_COMMAND_UI(IDC_TEMPO, OnUpdateTempo)
 	ON_COMMAND(ID_EXPORT_MIDI, OnExportMidi)
 	ON_UPDATE_COMMAND_UI(ID_EXPORT_MIDI, OnUpdateExportMidi)
 	//}}AFX_MSG_MAP
 	ON_EN_CHANGE(IDC_STEMME, OnSetStemme)
+	ON_EN_KILLFOCUS(IDC_TEMPO, OnEditedTempo)
 	ON_EN_CHANGE(IDC_TEMPO, OnSetTempo)
 END_MESSAGE_MAP()
 
@@ -118,6 +120,7 @@ void CFmrytmeDoc::Serialize(CArchive& ar)
 			ar >> nGrunnpuls;
 			m_pFMSang->GetSekvens(i)->SetGrunnpuls(&m_plotInfo, nGrunnpuls);			
 		}
+		m_pFMSang->SetMetronom(m_pMIDISang->GetMidiTime()->GetMetronom());
 		m_pFMSang->ComputePlot();
 		UpdateFrame();
 		UpdateAllViews(NULL, CFmrytmeView::NY_SANG);		
@@ -154,6 +157,7 @@ void CFmrytmeDoc::OnImportMidi()
 			DeleteContents();
 			m_pMIDISang = midiFile.GetSang();
 			m_pMIDISang->NormaliserTid();
+			int metronom = m_pMIDISang->GetMidiTime()->GetMetronom();
 			m_plotInfo.m_nSlagPrTakt = m_pMIDISang->GetTaktart(CMidiSang::TELLER);
 			CMinsteTidDialog dlg;
 			dlg.DoModal();
@@ -163,6 +167,7 @@ void CFmrytmeDoc::OnImportMidi()
 			for (int i=0; i<m_pMIDISang->GetSpor(); i++) {
 				CFMOscillator* pMod = new CFMOscillator;
 				m_pFMSang->GetSekvens(i)->SetModulator(pMod);
+				pMod->SetMetronom(metronom);
 			}
 			m_pFMSang->ComputePlot();
 			SetModifiedFlag();
@@ -219,6 +224,8 @@ void CFmrytmeDoc::OnImportTekst()
 			if (bFilOK) {
 				m_pMIDISang->LeggTilSekvens(tekstFile.GetMidiSekvens(), m_pMIDISang->GetSpor());
 				CFMOscillator* pMod = new CFMOscillator;
+				int metronom = m_pMIDISang->GetMidiTime()->GetMetronom();
+				pMod->SetMetronom(metronom);
 				tekstFile.GetFMSekvens()->SetModulator(pMod);
 				m_pFMSang->LeggTilSekvens(tekstFile.GetFMSekvens());
 				m_pFMSang->ComputePlot();
@@ -312,6 +319,15 @@ void CFmrytmeDoc::OnSetTempo()
 	CMainFrame* pFrame = (CMainFrame*) AfxGetApp()->m_pMainWnd;
 	if (m_pMIDISang != NULL)
 		m_pMIDISang->SetMetronom(pFrame->GetTempo());
+}
+
+void CFmrytmeDoc::OnEditedTempo()
+{
+	CMainFrame* pFrame = (CMainFrame*)AfxGetApp()->m_pMainWnd;
+	if (m_pFMSang != NULL)
+		m_pFMSang->SetMetronom(pFrame->GetTempo());
+	m_pFMSang->ComputePlot();
+	UpdateAllViews(NULL, CFmrytmeView::NY_SANG);
 }
 
 void CFmrytmeDoc::OnSolo() 
@@ -478,6 +494,12 @@ void CFmrytmeDoc::OnFjernStemme()
 			UpdateAllViews(NULL, CFmrytmeView::NY_SANG);
 		}
 	}
+}
+
+void CFmrytmeDoc::OnUpdateTempo(CCmdUI* pCmdUI)
+{
+	CMainFrame* pFrame = (CMainFrame*)AfxGetApp()->m_pMainWnd;
+	pCmdUI->Enable((m_pMIDISang != NULL) && !(pFrame->m_midiPlay.IsPlaying()));
 }
 
 void CFmrytmeDoc::OnUpdateFjernStemme(CCmdUI* pCmdUI) 

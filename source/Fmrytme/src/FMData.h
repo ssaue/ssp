@@ -81,6 +81,7 @@ public:
 	void SetTaktLengde(int nSlag);
 	void LikeModulatorer(int nSekvNr);
 	void SetGrunnpuls(int nGrunnpuls);
+	void SetMetronom(int metronom);
 
 	void ComputePlot(int sporNr = ALLE_SPOR);
 	void UpdatePeriode(void);

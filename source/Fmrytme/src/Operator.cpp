@@ -29,6 +29,8 @@ CFMOscillator::CFMOscillator() : COperator(COperator::FMOSCILLATOR)
 	m_nPotens = 1;
 	m_dPeriode = CMainFrame::m_settings.m_nPeriode;
 	m_dAmplitude = m_dFase = m_dFrekvens = 0.0;
+	m_metro_a = 0.0;
+	m_metro_b = 1.0;
 	BeregnFaktor();
 	m_pFrekMod = NULL;
 }
@@ -39,6 +41,8 @@ CFMOscillator::CFMOscillator(int type) : COperator(type)
 	m_nPotens = 1;
 	m_dPeriode = CMainFrame::m_settings.m_nPeriode;
 	m_dAmplitude = m_dFase = m_dFrekvens = 0.0;
+	m_metro_a = 0.0;
+	m_metro_b = 1.0;
 	BeregnFaktor();
 	m_pFrekMod = NULL;
 }
@@ -51,6 +55,9 @@ CFMOscillator::CFMOscillator(const CFMOscillator& osc) : COperator(osc.m_nType)
 	m_dFrekvens = osc.m_dFrekvens;
 	m_dPeriode = osc.m_dPeriode;
 	m_nPotens = osc.m_nPotens;
+	m_metro_a = osc.m_metro_a;
+	m_metro_b = osc.m_metro_b;
+	m_amps = osc.m_amps;
 	BeregnFaktor();
 	if (osc.m_pFrekMod == NULL)
 		m_pFrekMod = NULL;
@@ -116,6 +123,14 @@ void CFMOscillator::Serialize(CArchive& ar)
 
 void CFMOscillator::BeregnFaktor()
 {
+	// Dummy test ampcurve
+	//m_amps.push_back(std::make_pair<double, double>(0.0, 1));
+	//m_amps.push_back(std::make_pair<double, double>(16.0, -1));
+
+	// Dummy test metronomcurve
+	m_metro_a = 0.01;
+	m_metro_b = -2;
+
 	switch (m_nFunksjon)
 	{
 	case SIN:
@@ -131,6 +146,40 @@ void CFMOscillator::BeregnFaktor()
 		break;
 	}
 }
+
+inline double CFMOscillator::GetMetroFak() const
+{
+	return m_metro_a * m_nMetronom + m_metro_b;
+}
+
+
+double CFMOscillator::GetAmplitude(long tid) const {
+	double amp = m_dAmplitude;
+	if (!m_amps.empty()) {
+		double time = static_cast<double>(tid) / m_dPeriode;
+		double start = 0.0;
+		for (ampvec::const_iterator iter = m_amps.begin(); iter < m_amps.end(); iter++) {
+			if (iter->first <= time) {
+				start = iter->first;
+				amp = iter->second;
+			}
+			else {
+				double timediff = iter->first - start;
+				if (timediff > 0.0) {
+					double dFak = (time - start) / timediff;
+					amp += dFak * (iter->second - amp);
+				}
+				else {
+					amp = iter->second;
+				}
+				break;
+			}
+		}
+	}
+
+	return amp * GetMetroFak();
+}
+
 
 void CFMOscillator::UpdatePeriode(double dPeriode)
 {
@@ -244,7 +293,7 @@ double CFMOscillator::GetValue(long tid) const
 		utr = 0;
 		break;
 	}
-	return m_dAmplitude * pow(utr, m_nPotens);
+	return GetAmplitude(tid) * pow(utr, m_nPotens);
 	}
 
 
