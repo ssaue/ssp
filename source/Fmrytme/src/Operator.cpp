@@ -128,8 +128,8 @@ void CFMOscillator::BeregnFaktor()
 	//m_amps.push_back(std::make_pair<double, double>(16.0, -1));
 
 	// Dummy test metronomcurve
-	m_metro_a = 0.01;
-	m_metro_b = -2;
+	//m_metro_a = 0.01;
+	//m_metro_b = -2;
 
 	switch (m_nFunksjon)
 	{

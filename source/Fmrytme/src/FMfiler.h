@@ -18,7 +18,7 @@ class CMidiFile : public CFile
 private:
 	enum {METABYTE=0XFF, TITTELBYTE=0X03, SLUTTBYTE=0X2f, TEMPOBYTE=0X51, TAKTARTBYTE=0X58};
 	enum {SYSEX1=0XF0, SYSEX2=0XF7};
-	enum {STATUSBYTE=0x80, WRITE_FORMAT=384};
+	enum {STATUSBYTE=0x80, WRITE_FORMAT=480};
 	static const int dataLengde[];
 	static const char* headerName;
 	static const char* trackName;
