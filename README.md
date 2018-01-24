@@ -8,10 +8,11 @@ This repository is a repository for various sound and art projects. The main pro
 * MidiMagi: Utility application for generating MIDI files to PressureMagi
 * SoundServerAPI: API for a soundserver in an Augmented reality project
 
-In addition there are a few support libraries (MS Wimdows based):
+In addition there are a few support libraries (MS Windows based):
 
 * sspUtility: Timers events, synchronization
 * sspMidiLib: Midi handling, including Midi File read/write (MME based)
 * sspAudioLib: Reading audio files using libsndfile (wrapper)
 
-The projects are found under \source. The solution and project files are found under \source\<project name>\build\<target platform>.
+The projects are found under \source. 
+The solution and project files are found under \source\<project name>\build\<target platform>.
